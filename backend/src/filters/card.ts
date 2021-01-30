@@ -1,13 +1,10 @@
-import { ServiceContext } from "../types";
-import { Filter } from "./filter";
+import { ServiceContext, Filter } from "../types";
 import fs from "fs";
 import path from "path";
 
 export class CardFilter implements Filter {
-    public validate(method: string, action: string, body: any) {
-        return (method === "POST") && 
-            (action === "card") && 
-            (typeof body === "object") &&
+    public validate(body: any) {
+        return (typeof body === "object") &&
             (typeof body.deck_name === "string") &&
             (typeof body.card_name === "string");
     }
@@ -37,6 +34,7 @@ export class CardFilter implements Filter {
         const html = await htmlBuffer.toString("utf-8");
 
         return {
+            status: Number(process.env.STATUS_OK!),
             contentType: "text/html",
             body: html
         }

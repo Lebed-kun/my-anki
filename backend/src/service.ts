@@ -1,11 +1,11 @@
 import fs from "fs";
-import path, { parse } from "path";
-import http, { Server } from "http";
+import path from "path";
 
-import { AnkiConfig, AnkiCardRef, ServiceContext } from "./types";
+import { AnkiConfig, AnkiCardRef, ServiceContext, Routes, ServiceResponse, Filter } from "./types";
 
 class Service {
     private context?: ServiceContext;
+    private routes?: Routes; 
 
     private shallowValidateConf(rawConfig: any) {
         if (typeof rawConfig !== "object") {
@@ -87,6 +87,10 @@ class Service {
         return rawContent.toString("utf-8");
     }
 
+    public Service(routes: Routes) {
+        this.routes = routes;
+    }
+
     public init() {
         const resourcesPath = path.join(
             __dirname,
@@ -103,7 +107,49 @@ class Service {
         };
     }
 
-    public exec(action: string, body: any) {
-        
+    private async handleAction(filter: Filter, body: any, context: ServiceContext): 
+        Promise<ServiceResponse> 
+    {
+        try {
+            const response = await filter.execute(body, context);
+            return response;
+        } catch (err) {
+            return {
+                status: Number(process.env.STATUS_BAD_REQUEST!),
+                contentType: "text/plain",
+                body: err.message
+            };
+        }
+    }
+
+    public async exec(method: string, action: string, body: any): Promise<ServiceResponse> {
+        if (
+            (typeof this.routes !== "undefined") &&
+            (typeof this.context !== "undefined")
+        ) {
+            const filters = this.routes.get(method);
+            
+            if (!filters?.has(action)) {
+                return {
+                    status: Number(process.env.STATUS_NOT_FOUND!),
+                    contentType: "text/plain",
+                    body: `Route ${method} /${action} not found!`
+                };
+            } 
+
+            const filter = filters.get(action)!;
+
+            if (!filter.validate(body)) {
+                return {
+                    status: Number(process.env.STATUS_BAD_REQUEST!),
+                    contentType: "text/plain",
+                    body: `Incorrect body:\n\n${JSON.stringify(body)}`
+                };
+            }
+
+            return await this.handleAction(filter, body, this.context);
+        } else {
+            throw "Routes or context not initialized!";
+        }
     }
 }

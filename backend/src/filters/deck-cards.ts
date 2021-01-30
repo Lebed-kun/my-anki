@@ -1,11 +1,8 @@
-import { ServiceContext } from "../types";
-import { Filter } from "./filter";
+import { ServiceContext, Filter } from "../types";
 
 export class DecksCardsFilter implements Filter {
-    public validate(method: string, action: string, body: any) {
-        return (method === "POST") &&
-            (action === "deck-cards") && 
-            (typeof body === "object") &&
+    public validate(body: any) {
+        return (typeof body === "object") &&
             (typeof body.name === "string");
     }
 
@@ -14,6 +11,7 @@ export class DecksCardsFilter implements Filter {
         const marshalledCardNames = await JSON.stringify(deckCardNames);
 
         return {
+            status: Number(process.env.STATUS_OK!),
             contentType: "application/json",
             body: marshalledCardNames
         }
