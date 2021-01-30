@@ -1,14 +1,10 @@
+import { ServiceContext } from "./service-context";
+
 export type AnkiCardRef = string;
 
 export interface AnkiConfig {
     deckNames: string[],
     decks: Map<string, AnkiCardRef[]>
-}
-
-export interface ServiceContext {
-    resourcesPath: string;
-    memConfig: AnkiConfig;
-    fallbackPage: string;
 }
 
 export interface ServiceResponse {
@@ -26,3 +22,5 @@ export type Routes = Map<
     string,
     Map<string, Filter>
 >;
+
+export { ServiceContext };

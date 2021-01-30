@@ -1,9 +1,12 @@
 import http from "http";
 import { Router } from "./filters";
 import { Service } from "./service";
+import { ServiceContext } from "./service-context";
 
-const service = new Service(Router);
-service.init();
+const serviceContext = new ServiceContext();
+serviceContext.init();
+
+const service = new Service(Router, serviceContext);
 
 const server = http.createServer(
     (req, res) => {
