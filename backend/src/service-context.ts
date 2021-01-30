@@ -83,7 +83,7 @@ export class ServiceContext {
         const rawContent = fs.readFileSync(
             path.join(
                 resourcesPath, 
-                process.env.CONFIG_PATH!
+                process.env.PATH_CONFIG!
             )
         );
         
@@ -103,7 +103,7 @@ export class ServiceContext {
         const rawContent = fs.readFileSync(
             path.join(
                 resourcesPath,
-                process.env.GET_TEMPLATE_PATH!
+                process.env.PATH_GET_TEMPLATE!
             )
         );
 
@@ -115,7 +115,8 @@ export class ServiceContext {
         const resourcesPath = path.join(
             __dirname,
             "..",
-            ".."
+            "..",
+            process.env.PATH_RESOURCES!
         );
         const memConfig = this.setupConfig(resourcesPath);
         const fallbackPage = this.setupFallbackPage(resourcesPath);

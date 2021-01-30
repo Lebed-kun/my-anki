@@ -49,56 +49,40 @@ export class Service {
             throw "Service context not initialized!"
         }
 
-        if (typeof this.context.resourcesPath === "undefined") {
-            throw "Resource path not initialized!";
-        }
-
-        if (typeof this.context.memConfig === "undefined") {
-
-        }
-
-
-        if (
-            (typeof this.routes !== "undefined") &&
-            (typeof this.context !== "undefined")
-        ) {
-            const filters = this.routes.get(method);
+        const filters = this.routes.get(method);
             
-            if (!filters?.has(action)) {
-                return {
-                    status: Number(process.env.STATUS_NOT_FOUND!),
-                    contentType: "text/plain",
-                    body: `Route ${method} /${action} not found!`
-                };
-            } 
+        if (!filters?.has(action)) {
+            return {
+                status: Number(process.env.STATUS_NOT_FOUND!),
+                contentType: "text/plain",
+                body: `Route ${method} /${action} not found!`
+            };
+        } 
 
-            const [body, parsingError] = await (
-                contentType === "application/json" ?
-                    this.parseJSONBody(rawBody) : 
-                    ["", undefined]
-            );
+        const [body, parsingError] = await (
+            contentType === "application/json" ?
+                this.parseJSONBody(rawBody) : 
+                ["", undefined]
+        );
 
-            if (typeof parsingError !== "undefined") {
-                return {
-                    status: Number(process.env.STATUS_BAD_REQUEST!),
-                    contentType: "text/plain",
-                    body: `Syntax error in body:\n\n${rawBody}\n\n==========\n\n${parsingError}`
-                }
+        if (typeof parsingError !== "undefined") {
+            return {
+                status: Number(process.env.STATUS_BAD_REQUEST!),
+                contentType: "text/plain",
+                body: `Syntax error in body:\n\n${rawBody}\n\n==========\n\n${parsingError}`
             }
-
-            const filter = filters.get(action)!;
-
-            if (!filter.validate(body)) {
-                return {
-                    status: Number(process.env.STATUS_BAD_REQUEST!),
-                    contentType: "text/plain",
-                    body: `Incorrect body:\n\n${JSON.stringify(body)}`
-                };
-            }
-
-            return await this.handleAction(filter, body, this.context);
-        } else {
-            throw "Routes or context not initialized!";
         }
+
+        const filter = filters.get(action)!;
+
+        if (!filter.validate(body)) {
+            return {
+                status: Number(process.env.STATUS_BAD_REQUEST!),
+                contentType: "text/plain",
+                body: `Incorrect body:\n\n${JSON.stringify(body)}`
+            };
+        }
+
+        return await this.handleAction(filter, body, this.context);
     }
 }

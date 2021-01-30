@@ -47,4 +47,9 @@ const server = http.createServer(
     }
 );
 
-server.listen(process.env.PORT);
+server.listen(
+    process.env.PORT, 
+    () => {
+        console.log(`Listening on port ${process.env.PORT}`);
+    }
+);

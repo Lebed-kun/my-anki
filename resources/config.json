@@ -1,6 +1,10 @@
 {
-    "deck_keys": [],
+    "deck_names": [
+        "example-deck"
+    ],
     "decks": {
-
+        "example-deck": [
+            "card"
+        ]
     }
 }

@@ -2,6 +2,11 @@ import { ServiceContext, Filter } from "../types";
 import fs from "fs";
 import path from "path";
 
+enum CardSide {
+    Front,
+    Back
+}
+
 export class CardFilter implements Filter {
     public validate(body: any) {
         return (typeof body === "object") &&
@@ -9,15 +14,20 @@ export class CardFilter implements Filter {
             (typeof body.card_name === "string");
     }
 
-    public async execute(body: any, context: ServiceContext) {
+    private async readCard(
+        body: any, 
+        context: ServiceContext, 
+        cardSide: CardSide
+    ) {
         const fileReadPromise: Promise<Buffer> = new Promise(
             (res, rej) => {
                 fs.readFile(
                     path.join(
                         context.resourcesPath,
-                        process.env.DECKS_DIR!,
+                        process.env.PATH_DECKS!,
                         body.deck_name,
-                        body.card_name
+                        body.card_name,
+                        `${cardSide === CardSide.Back ? "back" : "front"}.html`,
                     ),
                     (err, data) => {
                         if (err !== null) {
@@ -31,12 +41,24 @@ export class CardFilter implements Filter {
         );
 
         const htmlBuffer = await Promise.resolve(fileReadPromise);
-        const html = await htmlBuffer.toString("utf-8");
+        return await htmlBuffer.toString("utf-8");
+    }
+
+    public async execute(body: any, context: ServiceContext) {
+        const [frontSide, backSide] = await Promise.all(
+            [
+               this.readCard(body, context, CardSide.Front), 
+               this.readCard(body, context, CardSide.Back)
+            ]
+        );
 
         return {
             status: Number(process.env.STATUS_OK!),
-            contentType: "text/html",
-            body: html
+            contentType: "application/json",
+            body: JSON.stringify({
+                front: frontSide,
+                back: backSide
+            })
         }
     }
 }
