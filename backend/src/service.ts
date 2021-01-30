@@ -1,11 +1,11 @@
 import fs from "fs";
 import path, { parse } from "path";
-import http from "http";
+import http, { Server } from "http";
 
-import { AnkiConfig, AnkiCardRef } from "./types";
+import { AnkiConfig, AnkiCardRef, ServiceContext } from "./types";
 
 class Service {
-    private memConfig?: AnkiConfig;
+    private context?: ServiceContext;
 
     private shallowValidateConf(rawConfig: any) {
         if (typeof rawConfig !== "object") {
@@ -55,9 +55,12 @@ class Service {
         return decks;
     }
 
-    private setupConfig(configName: string) {
+    private setupConfig(resourcesPath: string): AnkiConfig {
         const rawContent = fs.readFileSync(
-            path.resolve(__dirname, configName)
+            path.join(
+                resourcesPath, 
+                process.env.CONFIG_PATH!
+            )
         );
         
         const parsedContent = JSON.parse(rawContent.toString("utf-8")); 
@@ -66,23 +69,41 @@ class Service {
         const deckNames = this.unmarshallDeckNames(parsedContent);
         const decks = this.unmarshallDecks(parsedContent);
         
-        this.memConfig = {
+        return {
             deckNames,
             decks
         };
     }
 
-    private setupServer() {
-        
+    private setupFallbackPage(resourcesPath: string): string {
+        const rawContent = fs.readFileSync(
+            path.join(
+                resourcesPath,
+                process.env.GET_TEMPLATE_PATH!
+            )
+        );
+
+
+        return rawContent.toString("utf-8");
     }
 
-    public init(configName: string): Service {
-        try {
-            this.setupConfig(configName);
-        } catch (err) {
+    public init() {
+        const resourcesPath = path.join(
+            __dirname,
+            "..",
+            ".."
+        );
+        const memConfig = this.setupConfig(resourcesPath);
+        const fallbackPage = this.setupFallbackPage(resourcesPath);
 
-        } finally {
-            return this;
-        }
+        this.context = {
+            resourcesPath,
+            memConfig,
+            fallbackPage
+        };
+    }
+
+    public exec(action: string, body: any) {
+        
     }
 }

@@ -1,0 +1,28 @@
+<h2>
+    Here are POST methods:
+</h2>
+
+<ul>
+    <li>
+        <b>/decks</b> - get decks names;
+    </li>
+
+    <li>
+        <b>/deck-cards</b> - get deck refs to cards;
+        <p>
+            body: {
+                name: string
+            }
+        </p>
+    </li>
+
+    <li>
+        <b>/card</b> - get card info;
+        <p>
+            body: {
+                deck_name: string,
+                card_name: string
+            }
+        </p>
+    </li>
+</ul>
