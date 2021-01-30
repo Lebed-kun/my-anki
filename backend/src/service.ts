@@ -3,7 +3,7 @@ import path from "path";
 
 import { AnkiConfig, AnkiCardRef, ServiceContext, Routes, ServiceResponse, Filter } from "./types";
 
-class Service {
+export class Service {
     private context?: ServiceContext;
     private routes?: Routes; 
 
@@ -87,7 +87,7 @@ class Service {
         return rawContent.toString("utf-8");
     }
 
-    public Service(routes: Routes) {
+    constructor(routes: Routes) {
         this.routes = routes;
     }
 
@@ -122,7 +122,23 @@ class Service {
         }
     }
 
-    public async exec(method: string, action: string, body: any): Promise<ServiceResponse> {
+    /// The first value in promise result is json parsing result
+    /// The second value in promise result is error message
+    private async parseJSONBody(rawBody: string): Promise<[any, (string | undefined)]> {
+        try {
+            const body = await JSON.parse(rawBody);
+            return [body, undefined];
+        } catch (err) {
+            return [undefined, err.message];
+        }
+    }
+
+    public async exec(
+        method: string, 
+        action: string,
+        contentType: string, 
+        rawBody: string
+    ): Promise<ServiceResponse> {
         if (
             (typeof this.routes !== "undefined") &&
             (typeof this.context !== "undefined")
@@ -136,6 +152,20 @@ class Service {
                     body: `Route ${method} /${action} not found!`
                 };
             } 
+
+            const [body, parsingError] = await (
+                contentType === "application/json" ?
+                    this.parseJSONBody(rawBody) : 
+                    ["", undefined]
+            );
+
+            if (typeof parsingError !== "undefined") {
+                return {
+                    status: Number(process.env.STATUS_BAD_REQUEST!),
+                    contentType: "text/plain",
+                    body: `Syntax error in body:\n\n${rawBody}\n\n==========\n\n${parsingError}`
+                }
+            }
 
             const filter = filters.get(action)!;
 
