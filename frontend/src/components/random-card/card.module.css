@@ -1,3 +1,9 @@
 .invisible {
-    display: none;
+    visibility: hidden;
+}
+
+.card {
+    border: 1px dashed rgb(139, 139, 139);
+    padding: 16px;
+    width: 50%;
 }

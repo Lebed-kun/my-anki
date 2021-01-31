@@ -1,0 +1,10 @@
+.answer {
+    width: 100%;
+}
+
+.input {
+    width: calc(50% - 12px);
+    resize: vertical;
+    display: block;
+    min-height: 240px;
+}

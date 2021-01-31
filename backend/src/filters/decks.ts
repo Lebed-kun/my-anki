@@ -1,4 +1,5 @@
 import { ServiceContext, Filter } from "../types";
+import { corsHeaders } from "./cors";
 
 export class DecksFilter implements Filter {
     public validate(_body: any) {
@@ -11,7 +12,8 @@ export class DecksFilter implements Filter {
         return {
             status: Number(process.env.STATUS_OK!),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                ...corsHeaders
             },
             body: marshalledNames
         }

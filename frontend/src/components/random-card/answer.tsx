@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./answer.module.css";
 
 interface Props {
     onSubmit: (val: string) => void;
@@ -22,10 +23,11 @@ const Answer: React.FC<Props> = ({ onSubmit }) => {
     ) ;
 
     return (
-        <div>
+        <div className={styles.answer}>
             <textarea 
                 value={value} 
                 onChange={onChange}
+                className={styles.input}
             >
             </textarea>
 

@@ -1,13 +1,22 @@
-/*
 import { Filter, ServiceContext, ServiceResponse } from "../types";
 
-class CorsFilter implements Filter {
+export const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+    "Access-Control-Allow-Headers": "*",
+    "Access-Control-Max-Age": "86400"
+};
+
+export class CorsFilter implements Filter {
     public validate(_body: any) {
         return true;
     }
 
-    public async execute(body: any, context: ServiceContext): Promise<ServiceResponse> {
-
+    public async execute(_body: any, _context: ServiceContext): Promise<ServiceResponse> {
+        return {
+            status: Number(process.env.STATUS_OK!),
+            headers: corsHeaders,
+            body: ""
+        }
     }
 }
-*/

@@ -4,6 +4,7 @@ import Card from "./card";
 import Answer from "./answer";
 import { ScreenTitle } from "../common";
 import { useRouteMatch } from "react-router-dom";
+import styles from "./index.module.css";
 
 const RandomCard: React.FC = () => {
     const match = useRouteMatch<{ name: string }>("/deck/:name");
@@ -60,10 +61,15 @@ const RandomCard: React.FC = () => {
                     </ScreenTitle>
                 ) : (front && back) ? (
                     <div>
-                        <div>
+                        <div className={styles.row}>
                             <Card content={front} visible={true} />
+
+                            <div style={{ width: "20px" }} />
+
                             <Card content={back} visible={answered} />
                         </div>
+
+                        <div style={{ height: "20px" }} />
 
                         <Answer 
                             onSubmit={() => setAnswered(true)}

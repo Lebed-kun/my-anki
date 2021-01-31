@@ -1,4 +1,5 @@
 import { ServiceContext, Filter } from "../types";
+import { corsHeaders } from "./cors";
 
 export class DecksCardsFilter implements Filter {
     public validate(body: any) {
@@ -13,7 +14,8 @@ export class DecksCardsFilter implements Filter {
             return {
                 status: Number(process.env.STATUS_NOT_FOUND!),
                 headers: {
-                    "Content-Type": "text/plain"
+                    "Content-Type": "text/plain",
+                    ...corsHeaders
                 },
                 body: `Deck named "${body.name}" was not found!`
             }
@@ -24,7 +26,8 @@ export class DecksCardsFilter implements Filter {
         return {
             status: Number(process.env.STATUS_OK!),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                ...corsHeaders
             },
             body: marshalledCardNames
         }

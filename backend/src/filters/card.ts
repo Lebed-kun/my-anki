@@ -1,6 +1,7 @@
 import { ServiceContext, Filter } from "../types";
 import fs from "fs";
 import path from "path";
+import { corsHeaders } from "./cors";
 
 enum CardSide {
     Front,
@@ -56,7 +57,8 @@ export class CardFilter implements Filter {
             return {
                 status: Number(process.env.STATUS_OK!),
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    ...corsHeaders
                 },
                 body: JSON.stringify({
                     front: frontSide,
@@ -67,7 +69,8 @@ export class CardFilter implements Filter {
             return {
                 status: Number(process.env.STATUS_BAD_REQUEST!),
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "text/plain",
+                    ...corsHeaders
                 },
                 body: String(err.message)
             }

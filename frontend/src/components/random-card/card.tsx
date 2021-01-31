@@ -10,7 +10,10 @@ const Card: React.FC<Props> = ({ content, visible }) => {
     return (
         <div 
             dangerouslySetInnerHTML={{ __html: content }}
-            className={!visible ? styles.invisible : ""}
+            className={
+                styles.card + " " +
+                (!visible ? styles.invisible : "")
+            }
         />
     )
 }

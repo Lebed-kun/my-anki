@@ -64,7 +64,7 @@ export class Service {
         } 
 
         const [body, parsingError] = await (
-            contentType === "application/json" ?
+            contentType === "application/json" && rawBody.length > 0 ?
                 this.parseJSONBody(rawBody) : 
                 ["", undefined]
         );
