@@ -55,7 +55,9 @@ export class CardFilter implements Filter {
 
             return {
                 status: Number(process.env.STATUS_OK!),
-                contentType: "application/json",
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify({
                     front: frontSide,
                     back: backSide
@@ -64,7 +66,9 @@ export class CardFilter implements Filter {
         } catch (err) {
             return {
                 status: Number(process.env.STATUS_BAD_REQUEST!),
-                contentType: "text/plain",
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: String(err.message)
             }
         }

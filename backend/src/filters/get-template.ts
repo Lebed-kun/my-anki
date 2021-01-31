@@ -10,7 +10,9 @@ export class GetTemplateFilter implements Filter {
 
         return {
             status: Number(process.env.STATUS_OK!),
-            contentType: "text/html",
+            headers: {
+                "Content-Type": "text/html"
+            },
             body: template
         }
     }

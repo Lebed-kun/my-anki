@@ -12,7 +12,9 @@ export class DecksCardsFilter implements Filter {
         if (typeof deckCardNames === "undefined") {
             return {
                 status: Number(process.env.STATUS_NOT_FOUND!),
-                contentType: "text/plain",
+                headers: {
+                    "Content-Type": "text/plain"
+                },
                 body: `Deck named "${body.name}" was not found!`
             }
         }
@@ -21,7 +23,9 @@ export class DecksCardsFilter implements Filter {
 
         return {
             status: Number(process.env.STATUS_OK!),
-            contentType: "application/json",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: marshalledCardNames
         }
     }

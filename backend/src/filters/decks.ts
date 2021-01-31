@@ -10,7 +10,9 @@ export class DecksFilter implements Filter {
 
         return {
             status: Number(process.env.STATUS_OK!),
-            contentType: "application/json",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: marshalledNames
         }
     }

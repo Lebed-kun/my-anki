@@ -18,7 +18,9 @@ export class Service {
         } catch (err) {
             return {
                 status: Number(process.env.STATUS_BAD_REQUEST!),
-                contentType: "text/plain",
+                headers: {
+                    "Content-Type": "text/plain"
+                },
                 body: err.message
             };
         }
@@ -54,7 +56,9 @@ export class Service {
         if (!filters?.has(action)) {
             return {
                 status: Number(process.env.STATUS_NOT_FOUND!),
-                contentType: "text/plain",
+                headers: {
+                    "Content-Type": "text/plain"
+                },
                 body: `Route ${method} /${action} not found!`
             };
         } 
@@ -68,7 +72,9 @@ export class Service {
         if (typeof parsingError !== "undefined") {
             return {
                 status: Number(process.env.STATUS_BAD_REQUEST!),
-                contentType: "text/plain",
+                headers: {
+                    "Content-Type": "text/plain"
+                },
                 body: `Syntax error in body:\n\n${rawBody}\n\n==========\n\n${parsingError}`
             }
         }
@@ -78,7 +84,9 @@ export class Service {
         if (!filter.validate(body)) {
             return {
                 status: Number(process.env.STATUS_BAD_REQUEST!),
-                contentType: "text/plain",
+                headers: {
+                    "Content-Type": "text/plain"
+                },
                 body: `Incorrect body:\n\n${JSON.stringify(body)}`
             };
         }

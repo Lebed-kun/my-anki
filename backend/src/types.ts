@@ -9,7 +9,7 @@ export interface AnkiConfig {
 
 export interface ServiceResponse {
     status: number;
-    contentType: string;
+    headers: { [key: string]: string };
     body: string;
 }
 
