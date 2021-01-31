@@ -45,20 +45,28 @@ export class CardFilter implements Filter {
     }
 
     public async execute(body: any, context: ServiceContext) {
-        const [frontSide, backSide] = await Promise.all(
-            [
-               this.readCard(body, context, CardSide.Front), 
-               this.readCard(body, context, CardSide.Back)
-            ]
-        );
+        try {
+            const [frontSide, backSide] = await Promise.all(
+                [
+                   this.readCard(body, context, CardSide.Front), 
+                   this.readCard(body, context, CardSide.Back)
+                ]
+            );
 
-        return {
-            status: Number(process.env.STATUS_OK!),
-            contentType: "application/json",
-            body: JSON.stringify({
-                front: frontSide,
-                back: backSide
-            })
+            return {
+                status: Number(process.env.STATUS_OK!),
+                contentType: "application/json",
+                body: JSON.stringify({
+                    front: frontSide,
+                    back: backSide
+                })
+            }
+        } catch (err) {
+            return {
+                status: Number(process.env.STATUS_BAD_REQUEST!),
+                contentType: "text/plain",
+                body: String(err.message)
+            }
         }
     }
 }
