@@ -35,7 +35,8 @@ const server = http.createServer(
                 requestBody
             ).then(({ status, contentType, body }) => {
                 res.writeHead(status, {
-                    "Content-Type": contentType
+                    "Content-Type": contentType,
+                    "Access-Control-Allow-Origin": "*"
                 });
                 res.write(body);
                 res.end();

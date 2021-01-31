@@ -6,3 +6,4 @@ export enum Screen {
 }
 
 export const screen = writable(Screen.Home);
+export const deck = writable("");

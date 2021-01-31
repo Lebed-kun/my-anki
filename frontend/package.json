@@ -2,8 +2,8 @@
   "name": "frontend",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "bash -ac \". .env.app && rollup -c\"",
+    "dev": "bash -ac \". .env.app && rollup -c -w\"",
     "start": "sirv public",
     "validate": "svelte-check"
   },
