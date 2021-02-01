@@ -50,7 +50,11 @@ function saveConfig(config) {
             process.env.PATH_RESOURCES,
             process.env.PATH_CONFIG
         ),
-        JSON.stringify(config)
+        JSON.stringify(
+            config,
+            null,
+            4
+        )
     );
 }
 
