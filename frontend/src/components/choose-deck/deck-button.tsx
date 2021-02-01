@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
+import styles from "./deck-button.module.css";
 
 interface Props {
     deckName: string;
@@ -19,9 +20,11 @@ const DeckButton: React.FC<Props> = ({ deckName, title }) => {
     );
     
     return (
-        <button onClick={onClick}>
-            {title}
-        </button>
+        <div className={styles.wrapper}>
+            <button onClick={onClick}>
+                {title}
+            </button>
+        </div>
     )
 }
 
