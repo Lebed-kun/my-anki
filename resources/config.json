@@ -13,7 +13,16 @@
             "function-context",
             "promises-1",
             "prototypes-instanceof",
-            "context-1"
+            "context-1",
+            "context-2",
+            "context-3",
+            "context-4",
+            "functions-1",
+            "prototypes-1",
+            "prototypes-2",
+            "prototypes-3",
+            "prototypes-4",
+            "prototypes-5"
         ],
         "algorithms": [
             "bst-1"
