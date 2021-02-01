@@ -1,13 +1,69 @@
 {
     "deck_names": [
-        "algorithms",
+        "algorithms-array",
+        "algorithms-design",
+        "algorithms-dynamic-programming",
+        "algorithms-linked-list",
+        "algorithms-maths",
+        "algorithms-others",
+        "algorithms-sorting-search",
+        "algorithms-string",
+        "algorithms-tree",
         "databases",
         "example-deck",
         "javascript"
     ],
     "decks": {
-        "algorithms": [
-            "bst-1"
+        "algorithms-array": [
+            "buy-and-sell-stock-2",
+            "intersection-of-two-arrays-2",
+            "rotate-array",
+            "rotate-image",
+            "single-number",
+            "valid-sudoku"
+        ],
+        "algorithms-design": [
+            "min-stack",
+            "shuffle-array"
+        ],
+        "algorithms-dynamic-programming": [
+            "best-time-to-buy-sell-stock",
+            "climbing-stairs",
+            "house-robber",
+            "max-subarray"
+        ],
+        "algorithms-linked-list": [
+            "cycle",
+            "merge-two-lists",
+            "palindrome-list",
+            "remove-nth-node-from-end"
+        ],
+        "algorithms-maths": [
+            "roman-integer"
+        ],
+        "algorithms-others": [
+            "hamming-distance",
+            "missing-number",
+            "number-1-bits",
+            "reverse-bits"
+        ],
+        "algorithms-sorting-search": [
+            "first-bad-version",
+            "merge-sorted-array"
+        ],
+        "algorithms-string": [
+            "count-and-say",
+            "longest-common-prefix",
+            "reverse-string",
+            "string-to-integer",
+            "valid-anagram",
+            "valid-palindrome"
+        ],
+        "algorithms-tree": [
+            "bst-1",
+            "bt-level-order-traversal",
+            "sort-arr-to-bst",
+            "symmetric-tree"
         ],
         "databases": [
             "sql-vs-nosql"
