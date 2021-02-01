@@ -1,34 +1,34 @@
 {
     "deck_names": [
-        "example-deck",
-        "javascript",
         "algorithms",
-        "databases"
+        "databases",
+        "example-deck",
+        "javascript"
     ],
     "decks": {
-        "example-deck": [
-            "card"
-        ],
-        "javascript": [
-            "function-context",
-            "promises-1",
-            "prototypes-instanceof",
-            "context-1",
-            "context-2",
-            "context-3",
-            "context-4",
-            "functions-1",
-            "prototypes-1",
-            "prototypes-2",
-            "prototypes-3",
-            "prototypes-4",
-            "prototypes-5"
-        ],
         "algorithms": [
             "bst-1"
         ],
         "databases": [
             "sql-vs-nosql"
+        ],
+        "example-deck": [
+            "card"
+        ],
+        "javascript": [
+            "context-1",
+            "context-2",
+            "context-3",
+            "context-4",
+            "function-context",
+            "functions-1",
+            "promises-1",
+            "prototypes-1",
+            "prototypes-2",
+            "prototypes-3",
+            "prototypes-4",
+            "prototypes-5",
+            "prototypes-instanceof"
         ]
     }
 }
