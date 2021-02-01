@@ -1,0 +1,48 @@
+<p>
+    Constant space
+</p>
+
+<pre>
+    var isPalindrome = function(head) {
+        if (head === null || head.next == null) return true
+        let slow = head
+        let fast = head
+    
+        while (fast !== null && fast.next !== null) {
+            fast = fast.next.next
+            slow = slow.next
+        }
+        // if list length is odd, move slow over one to start
+        // the second half of the list
+        if (fast) {
+            slow = slow.next
+        }
+    
+        // reverse the second half of the list
+        slow = reverse(slow)
+        fast = head
+    
+        // check for palindromicity
+        while (slow) {
+            if (slow.val !== fast.val) {
+                return false
+            }
+            slow = slow.next
+            fast = fast.next
+        }
+        return true
+    }
+    
+    function reverse(head) {
+        let prev = null
+        let next;
+        while (head) {
+            next = head.next
+            head.next = prev
+            prev = head
+            head = next
+        }
+        return prev
+    }
+    
+</pre>

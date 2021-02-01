@@ -1,0 +1,47 @@
+<p>
+    Cyclic replacements:
+</p>
+
+<pre>
+    class Solution:
+        def rotate(self, nums: List[int], k: int) -> None:
+            n = len(nums)
+            k %= n
+            
+            start = count = 0
+            while count &lt; n:
+                current, prev = start, nums[start]
+                while True:
+                    next_idx = (current + k) % n
+                    nums[next_idx], prev = prev, nums[next_idx]
+                    current = next_idx
+                    count += 1
+                    
+                    if start == current:
+                        break
+                start += 1
+</pre>
+
+<p>
+    Using reverse:
+</p>
+
+<pre>
+    class Solution {
+        public void rotate(int[] nums, int k) {
+          k %= nums.length;
+          reverse(nums, 0, nums.length - 1);
+          reverse(nums, 0, k - 1);
+          reverse(nums, k, nums.length - 1);
+        }
+        public void reverse(int[] nums, int start, int end) {
+          while (start &lt; end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+          }
+        }
+      }
+</pre>

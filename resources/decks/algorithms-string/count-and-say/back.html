@@ -1,0 +1,38 @@
+<pre>
+    function say(n: string): string {
+        let result: string = "";
+        
+        let currDigit: string = "";
+        let digCount: number = 0;
+        
+        for (let i = 0; i < n.length; i++) {
+            if (currDigit.length === 0) {
+                currDigit = n[i];
+                digCount++;
+                continue;
+            }
+            
+            if (n[i] === currDigit) {
+                digCount++;
+            } else {
+                result += digCount + currDigit;
+                currDigit = n[i];
+                digCount = 1;
+            }
+        }
+        
+        if (currDigit.length > 0) {
+            result += digCount + currDigit;
+        }
+        
+        return result;
+    }
+    
+    function countAndSay(n: number): string {
+        if (n === 1) {
+            return "1";
+        } else {
+            return say(countAndSay(n - 1));
+        }
+    };
+</pre>

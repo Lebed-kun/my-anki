@@ -1,0 +1,60 @@
+<p>
+    With array
+</p>
+
+<pre>
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int[] counter = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            counter[s.charAt(i) - 'a']++;
+            counter[t.charAt(i) - 'a']--;
+        }
+        for (int count : counter) {
+            if (count != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+</pre>
+
+<p>
+    With hashmap
+</p>
+
+<pre>
+    function isAnagram(s: string, t: string): boolean {
+        const tempMap: Map<string, number> = new Map();
+        
+        for (let i = 0; i < s.length; i++) {
+            if (!tempMap.has(s[i])) {
+                tempMap.set(s[i], 1);
+            } else {
+                tempMap.set(
+                    s[i],
+                    tempMap.get(s[i])! + 1
+                );
+            }
+        }
+        
+        for (let i = 0; i < t.length; i++) {
+            if (!tempMap.has(t[i])) {
+                return false;
+            } else {
+                tempMap.set(
+                    t[i],
+                    tempMap.get(t[i])! - 1
+                );
+                
+                if (tempMap.get(t[i])! === 0) {
+                    tempMap.delete(t[i]);
+                }
+            }
+        }
+        
+        return tempMap.size === 0;
+    };
+</pre>

@@ -1,0 +1,30 @@
+public class Solution {
+    public boolean valid(String input) {
+      // Use two pointer from left and right 
+      int left = 0;
+      int right = input.length() - 1;
+      char leftChar; 
+      char rightChar; 
+      
+      // Scan from left and right to the middle
+      while (left <= right) {
+        // Update left and right char
+        leftChar = input.charAt(left);
+        rightChar = input.charAt(right);
+        // Skip non-alphanumeric charcter
+        if (!Character.isLetterOrDigit(leftChar)) {
+          left++;
+        } else if (!Character.isLetterOrDigit(rightChar)) {
+          right--;
+        } else {
+          // Check if same char (ignoring cases)
+          if (Character.toLowerCase(leftChar) != Character.toLowerCase(rightChar)) {
+            return false;
+          }
+          left++;
+          right--;
+        }
+      }
+      return true;
+    }
+  }
