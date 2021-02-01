@@ -76,7 +76,10 @@ const RandomCard: React.FC = () => {
                         />
 
                         <button
-                            onClick={fetchCard}
+                            onClick={() => {
+                                setAnswered(false);
+                                fetchCard();
+                            }}
                             disabled={!answered}
                         >
                             Next
