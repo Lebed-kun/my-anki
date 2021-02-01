@@ -1,0 +1,11 @@
+<p>
+    In the snippet above, there is a reference being made to a function 
+    and it’s being called without a context. 
+    In non-strict mode, <i>this</i> would be bound to the global object. 
+    But here we are in strict mode, therefore <i>this</i> will be set to undefined. 
+    And trying to read the <i>id</i> property from undefined, will throw a type error:
+</p>
+
+<pre>
+    TypeError: Cannot read property 'id' of undefined
+</pre>

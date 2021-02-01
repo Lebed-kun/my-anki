@@ -1,0 +1,29 @@
+<p>
+    A debounce higher order function takes a function and returns a new version of the function that is callable with a certain delay. For example, when you have input in a form and you want to have a certain delay between the time that a user is typing and the time that they are not, you can debounce the event handler to be called only if the delay condition is met. For example, if the debounce is set to 200ms, the event handler will only be called if there is at least 200ms between the last time that the user typed something and the last time that they didn’t.
+</p>
+
+<p>
+    Code:
+</p>
+
+<pre>
+    function debounce(func, wait, immediate) {
+        var timeout;
+        
+        return function() {
+            var context = this, args = arguments;
+
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+
+            var callNow = immediate && !timeout;
+            
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            
+            if (callNow) func.apply(context, args);
+        };
+    };
+</pre>

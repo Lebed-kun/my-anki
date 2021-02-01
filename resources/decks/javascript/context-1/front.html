@@ -1,0 +1,26 @@
+<p>
+    What will be the value of this in the snippet below when the getId function is called? 
+    And what will be the output to the console?
+</p>
+
+<pre>
+    'use strict';
+    const user = {
+        id: 551,
+        name: 'Tom',
+        getId() {
+            return this.id;
+        },
+        credentials: {
+            id: 120,
+            username: 'tom',
+            getId() {
+            return this.id;
+            }
+        },
+    };
+
+    const getId = user.credentials.getId;
+    console.log(getId());
+</pre>
+

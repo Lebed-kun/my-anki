@@ -1,0 +1,21 @@
+<p>
+    Given the following two functions:
+</p>
+
+<pre>
+    const a = () => {};
+    function B() {}
+</pre>
+
+<p>
+    What will be the values of each line in the following snippet:
+</p>
+
+<pre>
+    typeof a; // A
+    typeof B; // A
+    Object.getPrototypeOf(a); // B
+    Object.getPrototypeOf(B); // B
+    a.prototype; // C
+    B.prototype; // C
+</pre>

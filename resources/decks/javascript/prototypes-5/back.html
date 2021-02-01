@@ -1,0 +1,19 @@
+<ul>
+    <li>
+        In the snippet above, lines A will evaluate to the types of a and B. 
+        Both are functions so the typeof operator will return function for both.
+    </li>
+
+    <li>
+        In lines B we are evaluating the prototypes of function. 
+        Both are functions and they are linked to Function.prototype. 
+        So the value of Function.prototype will be returned for each.
+    </li>
+
+    <li>
+        Now, lines C are interesting because we are evaluating the prototype property of a and B. 
+        Now, because a is an arrow function it doesn't have a prototype property so 
+        undefined will be returned. But since function B is a non-arrow function, an object will 
+        be returned that includes properties like constructor, __proto__.
+    </li>
+</ul>

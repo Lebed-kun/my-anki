@@ -1,0 +1,25 @@
+<p>
+    In the snippet above, console.log is called inside an anonymous callback function passed to setTimeout. In this case, the callback function will create a context that is not explicitly set. In non-strict mode, this will be set to the global object. Even if we are calling the hello function with call and we are setting the context of hello to {name: 'tom'}, the callback function will not use the same context as the hello function and it will look for the name property on the global object. If a name property is defined it will return the value, otherwise it will log undefined. In order to use the same context as the hello function, we can use an arrow function or set this to another variable:
+</p>
+
+<pre>
+    // pass an arrow function to setTimeout
+    function hello() {
+        setTimeout(() => {
+            console.log(this.name); // -> `tom` will be logged.
+        }, 100);
+    }
+    hello.call({name: 'tom'});
+</pre>
+
+<p>or</p>
+
+<pre>
+    function hello() {
+        const self = this; // assign `this` to another variable
+        setTimeout(function() {
+          console.log(self.name); // -> `tom` will be logged.
+        }, 100);
+    }
+    hello.call({name: 'tom'});
+</pre>

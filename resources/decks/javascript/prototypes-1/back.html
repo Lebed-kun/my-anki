@@ -1,0 +1,9 @@
+<pre>
+    Object.getPrototypeOf(tom) === Developer.prototype; // true
+    Object.getPrototypeOf(tom) === Employee.prototype; // false
+    Developer.isPrototypeOf(tom); // false
+    Developer.prototype.isPrototypeOf(tom); // true
+    Employee.prototype.isPrototypeOf(tom); // true
+    Person.prototype.isPrototypeOf(tom); // true
+    Object.prototype.isPrototypeOf(tom); // true
+</pre>

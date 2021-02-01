@@ -1,0 +1,25 @@
+<p>
+    The <i>class</i> keyword is really just a syntactic sugar around constructor functions. We can replace the code above with two constructor functions and link their prototypes:
+</p>
+
+<pre>
+    function Person(name) {
+        this.name = name;
+    }
+
+    Person.prototype.hello = function hello() {
+        return 'hello ' + this.name;
+    };
+
+    function Developer(name, title) {
+        Person.call(this, name);
+        this.title = title;
+    }
+
+    Developer.prototype = Object.create(Person.prototype) // A
+    
+    Developer.prototype.constructor = Developer; // B
+    Developer.prototype.getTitle = function getTitle() {
+        return this.title;
+    };
+</pre>

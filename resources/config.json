@@ -12,7 +12,8 @@
         "javascript": [
             "function-context",
             "promises-1",
-            "prototypes-instanceof"
+            "prototypes-instanceof",
+            "context-1"
         ],
         "algorithms": [
             "bst-1"

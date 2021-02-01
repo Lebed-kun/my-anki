@@ -1,0 +1,24 @@
+<p>
+    What is the equivalent of the following class in ES5?
+</p>
+
+<pre>
+    class Person {
+        constructor(name) {
+          this.name = name;
+        }
+        hello() {
+          return 'hello ' + this.name;
+        }
+      }
+      
+      class Developer extends Person {
+        constructor(name, title) {
+          super(name);
+          this.title = title;
+        }
+        getTitle() {
+          return this.title;
+        }
+      }
+</pre>

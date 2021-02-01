@@ -1,0 +1,13 @@
+<p>
+    What will be logged to the console after running the snippet below?
+</p>
+
+<pre>
+    function hello() {
+        setTimeout(function() {
+          console.log(this.name);
+        }, 100);
+      }
+      hello.call({name: 'tom'});
+</pre>
+

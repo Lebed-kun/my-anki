@@ -1,0 +1,24 @@
+<p>
+    Given the following classes and prototype relationships:
+</p>
+
+<pre>
+    class Person {}
+    class Employee extends person {}
+    class Developer extends Employee {}
+    const tom = new Developer();
+</pre>
+
+<p>
+    What will be the value of each line in the snippet below:
+</p>
+
+<pre>
+    Object.getPrototypeOf(tom) === Developer.prototype; // A
+    Object.getPrototypeOf(tom) === Employee.prototype; // B
+    Developer.isPrototypeOf(tom); // C
+    Developer.prototype.isPrototypeOf(tom); // D
+    Employee.prototype.isPrototypeOf(tom); // E
+    Person.prototype.isPrototypeOf(tom); // F
+    Object.prototype.isPrototypeOf(tom); // G
+</pre>

@@ -1,0 +1,14 @@
+<p>
+    The following code won’t print the persons's name? Can you explain why? And how can we fix it?
+</p>
+
+<pre>
+    function Person(name) {
+        this.name = name;
+      }
+      Person.prototype.getName = () => {
+        return this.name;
+      };
+      const tom = new Person('Tom');
+      console.log(tom.getName());
+</pre>

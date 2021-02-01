@@ -1,0 +1,11 @@
+<p>
+    The reason is that the snippet above is using an arrow function for getName. 
+    Arrow functions cannot create a context and therefore this will be the global object in non-strict mode. 
+    To solve this, we can simply use a non-arrow function for getName:
+</p>
+
+<pre>
+    Person.prototype.getName = function getName() {
+        return this.name;
+    };
+</pre>
