@@ -1,10 +1,16 @@
 {
     "deck_names": [
-        "example-deck"
+        "example-deck",
+        "javascript"
     ],
     "decks": {
         "example-deck": [
             "card"
+        ],
+        "javascript": [
+            "function-context",
+            "promises-1",
+            "prototypes-instanceof"
         ]
     }
 }

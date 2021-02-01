@@ -1,0 +1,11 @@
+<pre>
+    function get(url, n = 1) {
+        return fetch(url).catch(err => {
+            if (n &gt;= 5) {
+                return get(url, n + 1)
+            } else {
+                throw "Cannot retrieve data"
+            }
+        });
+    }
+</pre>

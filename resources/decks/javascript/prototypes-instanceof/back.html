@@ -1,0 +1,11 @@
+<pre>
+    function instanceOf(left, right) {
+        let proto = left.__proto__;
+        let prototype = right.prototype;
+        for (;;) {
+            if (proto === null) return false;
+            if (proto === prototype) return true;
+            proto = proto.__proto__; // trace way up along the chain
+        }
+    }
+</pre>
