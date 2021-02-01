@@ -1,7 +1,9 @@
 {
     "deck_names": [
         "example-deck",
-        "javascript"
+        "javascript",
+        "algorithms",
+        "databases"
     ],
     "decks": {
         "example-deck": [
@@ -11,6 +13,12 @@
             "function-context",
             "promises-1",
             "prototypes-instanceof"
+        ],
+        "algorithms": [
+            "bst-1"
+        ],
+        "databases": [
+            "sql-vs-nosql"
         ]
     }
 }
