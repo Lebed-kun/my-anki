@@ -11,7 +11,8 @@
         "algorithms-tree",
         "databases",
         "example-deck",
-        "javascript"
+        "javascript",
+        "javascript-2"
     ],
     "decks": {
         "algorithms-array": [
@@ -85,6 +86,13 @@
             "prototypes-4",
             "prototypes-5",
             "prototypes-instanceof"
+        ],
+        "javascript-2": [
+            "promise-star",
+            "promises-1",
+            "promises-2",
+            "promises-3",
+            "promises-4"
         ]
     }
 }
