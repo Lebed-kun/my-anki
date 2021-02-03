@@ -1,0 +1,11 @@
+<p>
+    What is the output of the following code?
+</p>
+
+<pre>
+    const promise = new Promise((resolve, reject) => {
+        reject(Error('Some Error Occurred'));
+      })
+      .catch(error => console.log(error))
+      .then(error => console.log(error));
+</pre>
