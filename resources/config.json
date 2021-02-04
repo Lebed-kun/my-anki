@@ -17,6 +17,7 @@
     "decks": {
         "algorithms-array": [
             "buy-and-sell-stock-2",
+            "flatten-array",
             "intersection-of-two-arrays-2",
             "rotate-array",
             "rotate-image",
@@ -54,6 +55,7 @@
         ],
         "algorithms-string": [
             "count-and-say",
+            "group-anagrams",
             "longest-common-prefix",
             "reverse-string",
             "string-to-integer",
@@ -88,6 +90,7 @@
             "prototypes-instanceof"
         ],
         "javascript-2": [
+            "functions-1",
             "promise-star",
             "promises-1",
             "promises-2",
