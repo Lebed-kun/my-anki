@@ -14,3 +14,113 @@
         }
     }
 </pre>
+
+<button id="my-anki__spoiler-button" class="my-anki__spoiler-button">
+    Show Spoiler
+</button>
+
+<div id="my-anki__spoiler" class="my-anki__spoiler">
+    <p>
+        Inefficient but working solution (with no empty strings)
+    </p>
+    
+    <pre>
+                /**
+        * @param {string[]} strs
+        * @return {string[][]}
+        */
+        var groupAnagrams = function(strs) {
+            // your code here
+            const list = strs;
+            const result = [];
+            
+            const dict = {};
+            
+            for (let i = 0; i < list.length; i++) {
+                // 1
+                const key = list[i].split('').sort().join('');
+                
+                if (typeof dict[key] === "undefined") {    
+                    dict[key] = [list[i]];
+                    
+                    const dictCharsOrig = {};
+                    
+                    for (let j = 0; j < list[i].length; j++) {
+                        dictCharsOrig[list[i][j]] = (
+                            typeof dictCharsOrig[list[i][j]] === "undefined" ?
+                            1 : 
+                            dictCharsOrig[list[i][j]] + 1
+                        ) 
+                    }
+                    
+                    // 2
+                    for (let j = i + 1; j < list.length; j++) {
+                        const dictCharsComp = {};
+                        
+                        for (let k = 0; k < list[j].length; k++) {
+                            dictCharsComp[list[j][k]] = (
+                                typeof dictCharsComp[list[j][k]] === "undefined" ?
+                                1 : 
+                                dictCharsComp[list[j][k]] + 1
+                            )
+                        }
+                        
+                        let areAnagrams = true;
+                        
+                        for (let ch in dictCharsOrig) {
+                            if (dictCharsComp[ch] !== dictCharsOrig[ch]) {
+                                areAnagrams = false;
+                                
+                                break;
+                            }
+                        }
+                        
+                        if (areAnagrams) {
+                            dict[key].push(list[j])
+                        }
+                    }
+                }
+            }
+            
+            for (let key in dict) {
+                if (Array.isArray(dict[key]) && dict[key].length > 0) {
+                    result.push(dict[key]);
+                }
+            }
+            
+            return result;
+        };
+    </pre>
+</div>
+
+<style>
+    .my-anki__spoiler {
+        display: none;
+    }
+
+    .my-anki__spoiler--show {
+        display: block;
+    }
+
+    .my-anki__spoiler-button {
+        display: block;
+    }
+</style>
+
+<script type="text/javascript">
+    (function(document) {
+        var $spoiler = document.getElementById("my-anki__spoiler");
+        var $spoilerButton = document.getElementById("my-anki__spoiler-button");
+        var spoilerShow = false;
+
+        $spoilerButton.addEventListener(
+            "click",
+            function() {
+                spoilerShow = !spoilerShow;
+
+                $spoiler.className = spoilerShow ? "my-anki__spoiler--show" : "my-anki__spoiler";
+                $spoiler.textContent = spoilerShow ? "Hide Spoiler" : "Show Spoiler";
+            }
+        )
+    })(document)
+</script>
