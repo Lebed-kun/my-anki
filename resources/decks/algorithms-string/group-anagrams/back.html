@@ -14,3 +14,29 @@
         }
     }
 </pre>
+
+<pre>
+    var groupAnagrams = function(strs) {
+        // your code here
+        const result = [];
+        const dict = {};
+        
+        for (let i = 0; i < strs.length; i++) {
+            const key = strs[i].split("").sort().join("");
+            
+            if (typeof dict[key] === "undefined") {
+                dict[key] = []
+            }
+            
+            dict[key].push(strs[i]);
+        }
+        
+        for (let key in dict) {
+            result.push(
+                dict[key]
+            );
+        }
+        
+        return result;
+    };
+</pre>
