@@ -1,0 +1,40 @@
+<pre>
+    function ZigzagIterator(arrs) {
+        this._arrs = arrs;
+        this._xLength = arrs.reduce((res, arr) => Math.max(res, arr.length), 0);
+        this._yLength = arrs.length;
+        
+        this._xPtr = 0;
+        this._yPtr = 0;
+      }
+      
+      ZigzagIterator.prototype.hasNext = function() {
+        return this._xPtr < this._xLength;
+      }
+      
+      ZigzagIterator.prototype.next = function() {
+        const res = this._arrs[this._yPtr][this._xPtr];
+        
+        if (this._yPtr < this._yLength - 1) {
+          this._yPtr++;
+        } else {
+          this._yPtr = 0;
+          this._xPtr++;
+        }
+        
+        while (
+          this._xPtr < this._xLength
+          &&
+          this._xPtr >= this._arrs[this._yPtr].length
+        ) {
+          if (this._yPtr < this._yLength - 1) {
+            this._yPtr++;
+          } else {
+            this._yPtr = 0;
+            this._xPtr++;
+          }
+        }
+        
+        return res;
+      }
+</pre>

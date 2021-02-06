@@ -1,3 +1,35 @@
+<p>Using stack:</p>
+
+<pre>
+  function flattenArray(array) {
+    if (array.length === 0) return [];
+    
+    const res = [];
+    const stack = [[array, 0]];
+    
+    while (stack.length > 0) {
+      const [arr, id] = stack.pop();
+      
+      for (let i = id; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+          stack.push([arr, i + 1]);
+          stack.push([arr[i], 0]);
+          
+          break;
+        } else {
+          res.push(arr[i]);
+        }
+      }
+    }
+    
+    return res;
+  }
+</pre>
+
+<p>
+  Using splice function
+</p>
+
 <pre>
     function flatten(list) {
         for (let i = 0; i < list.length; i++) {
@@ -12,3 +44,4 @@
         return list;
       }
 </pre>
+
