@@ -1,0 +1,25 @@
+<pre>
+    function nestedListWeightSum(list) {
+        if (list.length === 0) return 0;
+        
+        let res = 0;
+        const stack = [[list, 0, 1]];
+        
+        while (stack.length > 0) {
+          const [arr, start, level] = stack.pop();
+          
+          for (let i = start; i < arr.length; i++) {
+            if (Array.isArray(arr[i])) {
+              stack.push([arr, i + 1, level]);
+              stack.push([arr[i], 0, level + 1]);
+              
+              break;
+            } else {
+              res += arr[i] * level;
+            }
+          }
+        }
+        
+        return res;
+      }
+</pre>

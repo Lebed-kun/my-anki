@@ -1,0 +1,25 @@
+<pre>
+    var arrayNesting = function(nums) {
+        let res = 0;
+        const visited = [].fill(false);
+        
+        for (let i = 0; i < nums.length; i++) {
+            if (!visited[i]) {
+                let start = nums[i];
+                let count = 0;
+    
+                for (;;) {
+                    start = nums[start];
+                    count++;
+                    visited[start] = true
+    
+                    if (start === nums[i]) break;
+                }
+    
+                res = Math.max(res, count);
+            }
+        }
+        
+        return res;
+    };
+</pre>

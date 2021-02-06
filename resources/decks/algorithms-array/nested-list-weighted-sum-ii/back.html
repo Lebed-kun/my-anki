@@ -1,0 +1,36 @@
+<pre>
+    function nestedListWeightSumII(list) {
+        let res = 0;
+      
+      // [list, level]
+      const queue = [[list, 1]];
+      let qPtr = 0;
+      
+      const stack = [];
+      
+      while (qPtr < queue.length) {
+        let sum = 0;
+        const [arr, level] = queue[qPtr++];
+      
+          for (let i = 0; i < arr.length; i++) {
+          if (Array.isArray(arr[i])) {
+            queue.push([arr[i], level + 1]);
+          } else {
+            sum += arr[i];
+          }
+        }
+        
+        stack.push([sum, level]);
+      }
+      
+      const maxLevel = stack[stack.length - 1][1];
+      
+      while (stack.length > 0) {
+        const [sum, level] = stack.pop();
+        
+        res += sum * (maxLevel - level + 1);
+      }
+      
+      return res;
+    }
+</pre>
