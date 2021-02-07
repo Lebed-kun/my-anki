@@ -1,0 +1,25 @@
+<pre>
+    var deleteDuplicates = function(head) {
+        if (head === null) return head;
+        
+        const dummy = new ListNode(-200, head);
+        
+        let prev = dummy;
+        
+        while (head !== null) {
+            if (head.next !== null && head.val === head.next.val) {
+                while (head.next !== null && head.val === head.next.val) {
+                    head = head.next;
+                }
+                
+                prev.next = head.next;
+            } else {
+                prev = prev.next;
+            }
+            
+            head = head.next;
+        }
+        
+        return dummy.next;
+    };
+</pre>
