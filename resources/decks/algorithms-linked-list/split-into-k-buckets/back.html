@@ -1,0 +1,53 @@
+<pre>
+    /**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} root
+ * @param {number} k
+ * @return {ListNode[]}
+ */
+var splitListToParts = function(root, k) {
+    // 1. Find number of nodes
+    let cntPtr = root;
+    let nodeCnt = 0;
+    
+    while (cntPtr !== null) {
+        nodeCnt++;
+        cntPtr = cntPtr.next;
+    }
+    
+    // 2. Find width of window and remainder
+    const minWidth = (nodeCnt / k) ^ 0;
+    let rem = nodeCnt % k;
+    
+    // 3. Collect buckets
+    const buckets = [];
+    let ptr = root;
+    
+    while (k > 0) {
+        let width = minWidth + (rem > 0 ? 1 : 0);
+        rem--;
+        
+        const h = ptr;
+        while (ptr !== null && width > 0) {
+            const prev = ptr;
+            ptr = ptr.next;
+            width--;
+            
+            if (width === 0) {
+                prev.next = null;
+            }
+        }
+        buckets.push(h);
+        
+        k--;
+    }
+    
+    return buckets
+};
+</pre>

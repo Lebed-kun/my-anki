@@ -1,0 +1,51 @@
+<pre>
+    /**
+ * @param {number[][]} image
+ * @param {number} sr
+ * @param {number} sc
+ * @param {number} newColor
+ * @return {number[][]}
+ */
+var floodFill = function(image, sr, sc, newColor) {
+    const sampleColor = image[sr][sc];
+    
+    if (newColor === sampleColor) return image;
+    
+    const stack = [sr, sc];
+    
+    while (stack.length > 0) {
+        const col = stack.pop();
+        const row = stack.pop();
+        
+        if (image[row][col] === sampleColor) {
+            image[row][col] = newColor;
+            
+            // If can go up
+            if (row - 1 >= 0) {
+                stack.push(row - 1);
+                stack.push(col);
+            }
+            
+            // If can go down
+            if (row + 1 < image.length) {
+                stack.push(row + 1);
+                stack.push(col);
+            }
+            
+            // If can go left
+            if (col - 1 >= 0) {
+                stack.push(row);
+                stack.push(col - 1)
+            }
+            
+            // If can go right
+            if (col + 1 < image[row].length) {
+                stack.push(row);
+                stack.push(col + 1);
+            }
+        }
+    }
+    
+    return image;
+};
+</pre>
