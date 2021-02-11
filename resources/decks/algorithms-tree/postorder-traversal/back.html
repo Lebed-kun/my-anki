@@ -1,0 +1,45 @@
+<pre>
+    /**
+ * // Definition for a Node.
+ * function Node(val,children) {
+ *    this.val = val;
+ *    this.children = children;
+ * };
+ */
+
+/**
+ * @param {Node} root
+ * @return {number[]}
+ */
+var postorder = function(root) {
+    if (root === null) return [];
+    
+    const res = [];
+    const stack = [root];
+    
+    // 1. Construct reversed list
+    while (stack.length > 0) {
+        const node = stack.pop();
+        res.push(node.val);
+        
+        for (let i = 0; i < node.children.length; i++) {
+            stack.push(node.children[i]);
+        }
+    }
+    
+    // 2. Reverse reversed list
+    let begin = 0;
+    let end = res.length - 1;
+    
+    while (begin < end) {
+        const temp = res[begin];
+        res[begin] = res[end];
+        res[end] = temp;
+        
+        begin++;
+        end--;
+    }
+    
+    return res;
+};
+</pre>

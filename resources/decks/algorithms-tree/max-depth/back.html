@@ -1,0 +1,38 @@
+<pre>
+    /**
+ * // Definition for a Node.
+ * function Node(val,children) {
+ *    this.val = val;
+ *    this.children = children;
+ * };
+ */
+
+/**
+ * @param {Node} root
+ * @return {number}
+ */
+var maxDepth = function(root) {
+    if (root === null) return 0;
+    
+    const nodeQueue = [root];
+    let nodeQPtr = 0;
+    
+    const levelQueue = [1];
+    let levelQPtr = 0;
+    
+    while (
+        nodeQPtr < nodeQueue.length && 
+        levelQPtr < levelQueue.length
+    ) {
+        const node = nodeQueue[nodeQPtr++];
+        const level = levelQueue[levelQPtr++];
+        
+        for (let i = 0; i < node.children.length; i++) {
+            nodeQueue.push(node.children[i]);
+            levelQueue.push(level + 1);
+        }
+    }
+    
+    return levelQueue[levelQueue.length - 1];
+};
+</pre>

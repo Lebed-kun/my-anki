@@ -1,0 +1,42 @@
+<pre>
+    /**
+ * @param {number[]} bills
+ * @return {boolean}
+ */
+var lemonadeChange = function(bills) {
+    const cost = 5;
+    
+    let fives = 0;
+    let tens = 0;
+    let twenties = 0;
+    
+    for (let i = 0; i < bills.length; i++) {
+        if (bills[i] === 5) {
+            fives++;
+        } else if (
+            bills[i] === 10 &&
+            fives > 0
+        ) {
+            fives--;
+            tens++;
+        } else if (
+            bills[i] === 20 &&
+            tens > 0 && fives > 0
+        ) {
+            fives--;
+            tens--;
+            twenties++;
+        } else if (
+            bills[i] === 20 &&
+            fives >= 3
+        ) {
+            fives -= 3;
+            twenties++;
+        } else {
+            return false;
+        }
+    }
+    
+    return true;
+};
+</pre>
