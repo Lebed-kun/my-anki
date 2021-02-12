@@ -2,7 +2,7 @@ mod utils;
 
 use decimal::d128;
 use utils::{curr_weight, calc_breakpoints};
-use rand::random;
+use rand::{random, thread_rng, Rng};
 
 pub fn curr_weights<'a>(prev_weights: &'a Vec<d128>, prev_count: u32, curr_rates: &'a Vec<u8>) -> Vec<d128> {
     assert_eq!(prev_weights.len(), curr_rates.len());
@@ -19,9 +19,10 @@ pub fn curr_weights<'a>(prev_weights: &'a Vec<d128>, prev_count: u32, curr_rates
 pub fn random_permutation(count: usize, curr_weights: &Vec<d128>) -> Vec<usize> {
     let mut res = Vec::new();
     let breakpoints = calc_breakpoints(curr_weights);
-    let mut i = 0_usize;
 
-    while (i < count) {
+    let mut rng = thread_rng();
+
+    for _ in 0..count {
         let randNum = d128!(random::<f64>());
         let prevCount = res.len();
 
@@ -33,7 +34,10 @@ pub fn random_permutation(count: usize, curr_weights: &Vec<d128>) -> Vec<usize> 
         } 
 
         if res.len() == prevCount {
-
+            let id = rng.gen_range(0..breakpoints.len());
+            res.push(id);
         }
     }
+
+    res
 }
