@@ -1,0 +1,1682 @@
+TARGET = Some("x86_64-unknown-linux-gnu")
+OPT_LEVEL = Some("0")
+HOST = Some("x86_64-unknown-linux-gnu")
+CC_x86_64-unknown-linux-gnu = None
+CC_x86_64_unknown_linux_gnu = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-unknown-linux-gnu = None
+CFLAGS_x86_64_unknown_linux_gnu = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("true")
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "decNumber" "-Wall" "-Wextra" "-DDECLITEND=1" "-o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decContext.o" "-c" "decNumber/decContext.c"
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "decNumber" "-Wall" "-Wextra" "-DDECLITEND=1" "-o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decDouble.o" "-c" "decNumber/decDouble.c"
+cargo:warning=In file included from decNumber/decDouble.c:137:0:
+cargo:warning=decNumber/decCommon.c: In function ‘decFinalize’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:376:13: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=             UBFROMUI(ub-3, 0);               // to 00000000
+cargo:warning=             ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:464:39: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           for (; s<=ulsd; s+=4, t+=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:465:47: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           for (t=tlsd-shift+1; t<=tlsd; t+=4) UBFROMUI(t, 0);  // pad 0s
+cargo:warning=                                               ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decDoubleFromString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:887:15: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=               UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);      // to BCD8
+cargo:warning=               ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:900:41: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; c<=clast-3; c+=4, ub+=4) UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);
+cargo:warning=                                         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:926:13: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=             UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);   // to BCD8
+cargo:warning=             ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decDoubleToEngString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1299:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>8);                  // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1299:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>8);                  // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1300:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourhi<<2) | (sourlo>>30)); // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1300:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourhi<<2) | (sourlo>>30)); // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1301:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>20);                 // declet 3
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1301:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>20);                 // declet 3
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1302:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>10);                 // declet 4
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1302:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>10);                 // declet 4
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1303:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo);                     // declet 5
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1303:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo);                     // declet 5
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1370:36: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (; s>=dotat; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                    ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1386:42: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     for (s=t-pre; s>=string; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                          ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1417:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK);
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decDoubleToString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1578:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>8);                  // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1578:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>8);                  // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1579:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourhi<<2) | (sourlo>>30)); // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1579:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourhi<<2) | (sourlo>>30)); // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1580:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>20);                 // declet 3
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1580:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>20);                 // declet 3
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1581:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>10);                 // declet 4
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1581:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>10);                 // declet 4
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1582:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo);                     // declet 5
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1582:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo);                     // declet 5
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1625:36: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (; s>=dotat; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                    ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1645:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK);
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1683:40: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=   for (s=t-pre; s>=string; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                        ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decDivide’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:532:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub, 0);                  // clear 9 BCD8s
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:533:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub+4, 0);                // ..
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:548:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(ub,   UBTOUI(&BIN2BCD8[top*4]));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:549:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(ub+3, UBTOUI(&BIN2BCD8[mid*4]));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:550:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(ub+6, UBTOUI(&BIN2BCD8[rem*4]));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:641:51: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           for (; UBTOUI(ub-3)==0x09090909; ub-=4) UBFROMUI(ub-3, 0);
+cargo:warning=                                                   ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decFiniteMultiply’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1033:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub,   UBTOUI(&BIN2BCD8[top*4]));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1034:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub+3, UBTOUI(&BIN2BCD8[mid*4]));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1035:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub+6, UBTOUI(&BIN2BCD8[rem*4]));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1038:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub, 0);                  // clear 9 BCD8s
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1039:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub+4, 0);                // ..
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decDoubleAdd’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1313:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+ 4, 0x09090909-UBTOUI(acc+ 4));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1314:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+ 8, 0x09090909-UBTOUI(acc+ 8));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1315:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+12, 0x09090909-UBTOUI(acc+12));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1316:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+16, 0x09090909-UBTOUI(acc+16));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1358:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     for (; ut<ub; ut+=4) UBFROMUI(ut, 0); // mind the gap
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1386:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(buf+4, 0);               // [clears decQuad 00 too]
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1387:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(buf+8, 0);
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1390:30: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; ut<ub; ut+=4) UBFROMUI(ut, 0); // fill them
+cargo:warning=                              ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1396:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(acc+COFF+DECPMAX,   UBTOUI(buf+COFF+DECPMAX));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1397:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(acc+COFF+DECPMAX+4, UBTOUI(buf+COFF+DECPMAX+4));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1401:45: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; us<ub+DECPMAX; us+=4, ut+=4) UBFROMUI(ut, UBTOUI(us));
+cargo:warning=                                             ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1448:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ut, carry & 0x0f0f0f0f); // clear debris and save
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1482:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(umsd,    0x09090909-UBTOUI(umsd));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1483:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(umsd+4,  0x09090909-UBTOUI(umsd+4));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1484:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(umsd+8,  0x09090909-UBTOUI(umsd+8));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1485:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(umsd+12, 0x09090909-UBTOUI(umsd+12));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1498:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+BNEXT,   0x09090909-UBTOUI(umsd+BNEXT));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1499:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+BNEXT+4, 0x09090909-UBTOUI(umsd+BNEXT+4));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1510:13: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=             UBFROMUI(ut, 0x09090909-UBTOUI(ut)); // invert four digits
+cargo:warning=             ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decDoubleFMA’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:2114:43: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     for (uh=hi->msd; uh<hi->lsd-3; uh+=4) UBFROMUI(uh, 0x09090909-UBTOUI(uh));
+cargo:warning=                                           ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:2175:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub-3, UBTOUI(ul-3));          // [cannot overlap]
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:2234:45: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (ul=lo->msd; ul<lo->lsd-3; ul+=4) UBFROMUI(ul, 0x09090909-UBTOUI(ul));
+cargo:warning=                                             ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decDoubleQuantize’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:2970:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(BUFOFF-4, 0);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3064:49: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; UBTOUI(ub-3)==0x09090909; ub-=4) UBFROMUI(ub-3, 0);
+cargo:warning=                                                 ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3077:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(BUFOFF-8, 0);                 // must be at least 5
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3078:52: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (uc=BUFOFF-12; uc>ulsd-DECPMAX-3; uc-=4) UBFROMUI(uc, 0);
+cargo:warning=                                                    ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3103:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(uc, 0);
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decDoubleShift’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3435:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(buf+DECPMAX, 0);           // 8 will handle most cases
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3436:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(buf+DECPMAX+4, 0);         // ..
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decNumCompare’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3701:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufl+DECPMAX+QUAD*2, 0);   // add eight zeros
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3702:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufl+DECPMAX+QUAD*2+4, 0); // ..
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3708:55: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (up=bufl+DECPMAX+QUAD*2+8; up<upend; up+=4) UBFROMUI(up, 0);
+cargo:warning=                                                       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3735:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufr+DECPMAX+QUAD*2, 0);   // add eight zeros
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3736:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufr+DECPMAX+QUAD*2+4, 0); // ..
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3742:55: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (up=bufr+DECPMAX+QUAD*2+8; up<upend; up+=4) UBFROMUI(up, 0);
+cargo:warning=                                                       ^~~~~~~~
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "decNumber" "-Wall" "-Wextra" "-DDECLITEND=1" "-o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decNumber.o" "-c" "decNumber/decNumber.c"
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "decNumber" "-Wall" "-Wextra" "-DDECLITEND=1" "-o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decPacked.o" "-c" "decNumber/decPacked.c"
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "decNumber" "-Wall" "-Wextra" "-DDECLITEND=1" "-o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decQuad.o" "-c" "decNumber/decQuad.c"
+cargo:warning=In file included from decNumber/decQuad.c:132:0:
+cargo:warning=decNumber/decCommon.c: In function ‘decFinalize’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:376:13: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=             UBFROMUI(ub-3, 0);               // to 00000000
+cargo:warning=             ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:464:39: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           for (; s<=ulsd; s+=4, t+=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:465:47: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           for (t=tlsd-shift+1; t<=tlsd; t+=4) UBFROMUI(t, 0);  // pad 0s
+cargo:warning=                                               ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decQuadFromString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:887:15: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=               UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);      // to BCD8
+cargo:warning=               ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:900:41: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; c<=clast-3; c+=4, ub+=4) UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);
+cargo:warning=                                         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:926:13: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=             UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);   // to BCD8
+cargo:warning=             ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decQuadToEngString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1306:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>4);                  // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1306:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>4);                  // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1307:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourhi<<6) | (sourmh>>26)); // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1307:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourhi<<6) | (sourmh>>26)); // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1308:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourmh>>16);                 // declet 3
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1308:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourmh>>16);                 // declet 3
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1309:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourmh>>6);                  // declet 4
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1309:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourmh>>6);                  // declet 4
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1310:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourmh<<4) | (sourml>>28)); // declet 5
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1310:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourmh<<4) | (sourml>>28)); // declet 5
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1311:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourml>>18);                 // declet 6
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1311:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourml>>18);                 // declet 6
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1312:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourml>>8);                  // declet 7
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1312:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourml>>8);                  // declet 7
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1313:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourml<<2) | (sourlo>>30)); // declet 8
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1313:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourml<<2) | (sourlo>>30)); // declet 8
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1314:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>20);                 // declet 9
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1314:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>20);                 // declet 9
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1315:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>10);                 // declet 10
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1315:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>10);                 // declet 10
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1316:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo);                     // declet 11
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1316:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo);                     // declet 11
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1370:36: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (; s>=dotat; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                    ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1386:42: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     for (s=t-pre; s>=string; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                          ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1422:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); // [as above]
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1430:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(c, UBTOUI(u)|CHARMASK);// copy fixed 3+1 characters [is safe]
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decQuadToString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1585:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>4);                  // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1585:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>4);                  // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1586:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourhi<<6) | (sourmh>>26)); // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1586:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourhi<<6) | (sourmh>>26)); // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1587:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourmh>>16);                 // declet 3
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1587:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourmh>>16);                 // declet 3
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1588:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourmh>>6);                  // declet 4
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1588:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourmh>>6);                  // declet 4
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1589:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourmh<<4) | (sourml>>28)); // declet 5
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1589:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourmh<<4) | (sourml>>28)); // declet 5
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1590:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourml>>18);                 // declet 6
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1590:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourml>>18);                 // declet 6
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1591:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourml>>8);                  // declet 7
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1591:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourml>>8);                  // declet 7
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1592:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourml<<2) | (sourlo>>30)); // declet 8
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1592:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char((sourml<<2) | (sourlo>>30)); // declet 8
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1593:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>20);                 // declet 9
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1593:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>20);                 // declet 9
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1594:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>10);                 // declet 10
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1594:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo>>10);                 // declet 10
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1595:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo);                     // declet 11
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1595:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourlo);                     // declet 11
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1625:36: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (; s>=dotat; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                    ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1650:11: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); // [as above]
+cargo:warning=           ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1658:11: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           UBFROMUI(c, UBTOUI(u)|CHARMASK); // copy fixed 3+1 characters [is safe]
+cargo:warning=           ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1683:40: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=   for (s=t-pre; s>=string; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                        ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decDivide’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:532:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub, 0);                  // clear 9 BCD8s
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:533:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub+4, 0);                // ..
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:548:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(ub,   UBTOUI(&BIN2BCD8[top*4]));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:549:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(ub+3, UBTOUI(&BIN2BCD8[mid*4]));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:550:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(ub+6, UBTOUI(&BIN2BCD8[rem*4]));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:641:51: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           for (; UBTOUI(ub-3)==0x09090909; ub-=4) UBFROMUI(ub-3, 0);
+cargo:warning=                                                   ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decFiniteMultiply’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1033:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub,   UBTOUI(&BIN2BCD8[top*4]));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1034:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub+3, UBTOUI(&BIN2BCD8[mid*4]));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1035:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub+6, UBTOUI(&BIN2BCD8[rem*4]));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1038:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub, 0);                  // clear 9 BCD8s
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1039:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub+4, 0);                // ..
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decQuadAdd’:
+cargo:warning=decNumber/decNumberLocal.h:158:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUS(b, i)  (uswork=(i), memcpy(b, (void *)&uswork, 2), uswork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1287:5: note: in expansion of macro ‘UBFROMUS’
+cargo:warning=     UBFROMUS(acc+4, 0);                 // prefix 00
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1313:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+ 4, 0x09090909-UBTOUI(acc+ 4));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1314:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+ 8, 0x09090909-UBTOUI(acc+ 8));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1315:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+12, 0x09090909-UBTOUI(acc+12));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1316:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+16, 0x09090909-UBTOUI(acc+16));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1318:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+20, 0x09090909-UBTOUI(acc+20));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1319:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+24, 0x09090909-UBTOUI(acc+24));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1320:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+28, 0x09090909-UBTOUI(acc+28));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1321:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+32, 0x09090909-UBTOUI(acc+32));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1322:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(acc+36, 0x09090909-UBTOUI(acc+36));
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1358:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     for (; ut<ub; ut+=4) UBFROMUI(ut, 0); // mind the gap
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:158:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUS(b, i)  (uswork=(i), memcpy(b, (void *)&uswork, 2), uswork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1375:7: note: in expansion of macro ‘UBFROMUS’
+cargo:warning=       UBFROMUS(buf+4, 0);               // clear quad's 00
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1386:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(buf+4, 0);               // [clears decQuad 00 too]
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1387:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(buf+8, 0);
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1390:30: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; ut<ub; ut+=4) UBFROMUI(ut, 0); // fill them
+cargo:warning=                              ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1396:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(acc+COFF+DECPMAX,   UBTOUI(buf+COFF+DECPMAX));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1397:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(acc+COFF+DECPMAX+4, UBTOUI(buf+COFF+DECPMAX+4));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1401:45: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; us<ub+DECPMAX; us+=4, ut+=4) UBFROMUI(ut, UBTOUI(us));
+cargo:warning=                                             ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1448:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ut, carry & 0x0f0f0f0f); // clear debris and save
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1482:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(umsd,    0x09090909-UBTOUI(umsd));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1483:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(umsd+4,  0x09090909-UBTOUI(umsd+4));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1484:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(umsd+8,  0x09090909-UBTOUI(umsd+8));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1485:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(umsd+12, 0x09090909-UBTOUI(umsd+12));
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1489:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+16, 0x09090909-UBTOUI(umsd+16));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1490:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+20, 0x09090909-UBTOUI(umsd+20));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1491:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+24, 0x09090909-UBTOUI(umsd+24));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1492:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+28, 0x09090909-UBTOUI(umsd+28));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1493:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+32, 0x09090909-UBTOUI(umsd+32));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1498:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+BNEXT,   0x09090909-UBTOUI(umsd+BNEXT));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1499:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+BNEXT+4, 0x09090909-UBTOUI(umsd+BNEXT+4));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1503:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+BNEXT+8,  0x09090909-UBTOUI(umsd+BNEXT+8));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1504:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(umsd+BNEXT+12, 0x09090909-UBTOUI(umsd+BNEXT+12));
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1510:13: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=             UBFROMUI(ut, 0x09090909-UBTOUI(ut)); // invert four digits
+cargo:warning=             ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decQuadCompareTotal’:
+cargo:warning=decNumber/decNumberLocal.h:158:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUS(b, i)  (uswork=(i), memcpy(b, (void *)&uswork, 2), uswork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1754:9: note: in expansion of macro ‘UBFROMUS’
+cargo:warning=         UBFROMUS(bufl, 0);
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:158:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUS(b, i)  (uswork=(i), memcpy(b, (void *)&uswork, 2), uswork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:1755:9: note: in expansion of macro ‘UBFROMUS’
+cargo:warning=         UBFROMUS(bufr, 0);
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decQuadFMA’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:2114:43: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     for (uh=hi->msd; uh<hi->lsd-3; uh+=4) UBFROMUI(uh, 0x09090909-UBTOUI(uh));
+cargo:warning=                                           ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:2175:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(ub-3, UBTOUI(ul-3));          // [cannot overlap]
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:2234:45: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (ul=lo->msd; ul<lo->lsd-3; ul+=4) UBFROMUI(ul, 0x09090909-UBTOUI(ul));
+cargo:warning=                                             ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decQuadQuantize’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:2970:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(BUFOFF-4, 0);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3064:49: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; UBTOUI(ub-3)==0x09090909; ub-=4) UBFROMUI(ub-3, 0);
+cargo:warning=                                                 ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3077:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(BUFOFF-8, 0);                 // must be at least 5
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3078:52: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (uc=BUFOFF-12; uc>ulsd-DECPMAX-3; uc-=4) UBFROMUI(uc, 0);
+cargo:warning=                                                    ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3103:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(uc, 0);
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decQuadShift’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3435:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(buf+DECPMAX, 0);           // 8 will handle most cases
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3436:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(buf+DECPMAX+4, 0);         // ..
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decBasic.c: In function ‘decNumCompare’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3681:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufl, 0);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3682:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufr, 0);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3701:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufl+DECPMAX+QUAD*2, 0);   // add eight zeros
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3702:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufl+DECPMAX+QUAD*2+4, 0); // ..
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3708:55: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (up=bufl+DECPMAX+QUAD*2+8; up<upend; up+=4) UBFROMUI(up, 0);
+cargo:warning=                                                       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3735:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufr+DECPMAX+QUAD*2, 0);   // add eight zeros
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3736:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(bufr+DECPMAX+QUAD*2+4, 0); // ..
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decBasic.c:3742:55: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (up=bufr+DECPMAX+QUAD*2+8; up<upend; up+=4) UBFROMUI(up, 0);
+cargo:warning=                                                       ^~~~~~~~
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "decNumber" "-Wall" "-Wextra" "-DDECLITEND=1" "-o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decSingle.o" "-c" "decNumber/decSingle.c"
+cargo:warning=In file included from decNumber/decSingle.c:68:0:
+cargo:warning=decNumber/decCommon.c: In function ‘decFinalize’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:376:13: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=             UBFROMUI(ub-3, 0);               // to 00000000
+cargo:warning=             ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:464:39: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           for (; s<=ulsd; s+=4, t+=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                       ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:465:47: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=           for (t=tlsd-shift+1; t<=tlsd; t+=4) UBFROMUI(t, 0);  // pad 0s
+cargo:warning=                                               ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decSingleFromString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:887:15: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=               UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);      // to BCD8
+cargo:warning=               ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:900:41: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         for (; c<=clast-3; c+=4, ub+=4) UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);
+cargo:warning=                                         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:926:13: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=             UBFROMUI(ub, UBTOUI(c)&0x0f0f0f0f);   // to BCD8
+cargo:warning=             ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decSingleToEngString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1295:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>10);                 // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1295:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>10);                 // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1290:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1296:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi);                     // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1292:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1296:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi);                     // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1370:36: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (; s>=dotat; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                    ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1386:42: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     for (s=t-pre; s>=string; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                          ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1417:7: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK);
+cargo:warning=       ^~~~~~~~
+cargo:warning=decNumber/decCommon.c: In function ‘decSingleToString’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1574:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>10);                 // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1574:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi>>10);                 // declet 1
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1569:26: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=          if (c!=cstart) {UBFROMUI(c, UBTOUI(u)|CHARMASK); c+=3;} \
+cargo:warning=                          ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1575:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi);                     // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1571:12: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=            UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK); c+=*(u+3);}
+cargo:warning=            ^~~~~~~~
+cargo:warning=decNumber/decCommon.c:1575:3: note: in expansion of macro ‘dpd2char’
+cargo:warning=   dpd2char(sourhi);                     // declet 2
+cargo:warning=   ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1625:36: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=       for (; s>=dotat; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                    ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1645:9: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=         UBFROMUI(c, UBTOUI(u+3-*(u+3))|CHARMASK);
+cargo:warning=         ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decCommon.c:1683:40: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=   for (s=t-pre; s>=string; s-=4, t-=4) UBFROMUI(t, UBTOUI(s));
+cargo:warning=                                        ^~~~~~~~
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "decNumber" "-Wall" "-Wextra" "-DDECLITEND=1" "-o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decimal128.o" "-c" "decNumber/decimal128.c"
+cargo:warning=In file included from decNumber/decimal128.c:32:0:
+cargo:warning=decNumber/decimal128.c: In function ‘decimal128FromNumber’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal128.c:165:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d128->bytes,    targlo);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal128.c:166:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d128->bytes+4,  targml);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal128.c:167:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d128->bytes+8,  targmh);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal128.c:168:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d128->bytes+12, targhi);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal128.c:172:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d128->bytes,    targhi);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal128.c:173:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d128->bytes+4,  targmh);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal128.c:174:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d128->bytes+8,  targml);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal128.c:175:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d128->bytes+12, targlo);
+cargo:warning=     ^~~~~~~~
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "decNumber" "-Wall" "-Wextra" "-DDECLITEND=1" "-o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decimal64.o" "-c" "decNumber/decimal64.c"
+cargo:warning=In file included from decNumber/decimal64.c:32:0:
+cargo:warning=decNumber/decimal64.c: In function ‘decimal64FromNumber’:
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal64.c:186:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d64->bytes,   targar[0]);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal64.c:187:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d64->bytes+4, targar[1]);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal64.c:191:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d64->bytes,   targar[1]);
+cargo:warning=     ^~~~~~~~
+cargo:warning=decNumber/decNumberLocal.h:159:69: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+cargo:warning=   #define UBFROMUI(b, i)  (uiwork=(i), memcpy(b, (void *)&uiwork, 4), uiwork)
+cargo:warning=                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cargo:warning=decNumber/decimal64.c:192:5: note: in expansion of macro ‘UBFROMUI’
+cargo:warning=     UBFROMUI(d64->bytes+4, targar[0]);
+cargo:warning=     ^~~~~~~~
+exit code: 0
+AR_x86_64-unknown-linux-gnu = None
+AR_x86_64_unknown_linux_gnu = None
+HOST_AR = None
+AR = None
+running: "ar" "cq" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/libdecNumber.a" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decContext.o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decDouble.o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decNumber.o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decPacked.o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decQuad.o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decSingle.o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decimal128.o" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/decNumber/decimal64.o"
+exit code: 0
+running: "ar" "s" "/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out/libdecNumber.a"
+exit code: 0
+cargo:rustc-link-lib=static=decNumber
+cargo:rustc-link-search=native=/home/user/Documents/projects/my-intranet/my-anki/arithmetics/target/debug/build/decimal-5ffb599050f16a70/out
