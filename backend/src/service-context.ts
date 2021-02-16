@@ -79,24 +79,24 @@ export class ServiceContext {
             const cards: Map<string, AnkiCardRef> = new Map();
 
             for (let cardName in rawDecks[deckName]) {
-                const repetition = Number(rawDecks[deckName].repetition);
+                const repetition = Number(rawDecks[deckName][cardName].repetition);
                 if (!Number.isFinite(repetition)) {
                     throw `Repetition is not a number in deck "${deckName}" in card "${cardName}"`
                 }
 
-                const interval = Number(rawDecks[deckName].interval);
+                const interval = Number(rawDecks[deckName][cardName].interval);
                 if (!Number.isFinite(interval)) {
                     throw `Interval is not a number in deck "${deckName}" in card "${cardName}"`
                 }
 
-                const efactor = Number(rawDecks[deckName].efactor);
+                const efactor = Number(rawDecks[deckName][cardName].efactor);
                 if (!Number.isFinite(efactor)) {
                     throw `Efactor is not a number in deck "${deckName}" in card "${cardName}"`
                 }
 
-                const rawPassedAt = rawDecks[deckName].passed_at;
+                const rawPassedAt = rawDecks[deckName][cardName].passed_at;
                 const passedAt = rawPassedAt !== null ? 
-                    new Date(rawDecks[deckName].passed_at) : 
+                    new Date(rawDecks[deckName][cardName].passed_at) : 
                     undefined;
                 if (
                     typeof passedAt !== "undefined" && 
