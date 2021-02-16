@@ -4,6 +4,7 @@ export interface AnkiCardRef {
     repetition: number;
     interval: number;
     efactor: number;
+    passedAt: Date | undefined;
 }
 
 export interface AnkiConfig {

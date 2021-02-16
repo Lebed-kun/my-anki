@@ -93,13 +93,25 @@ export class ServiceContext {
                 if (!Number.isFinite(efactor)) {
                     throw `Efactor is not a number in deck "${deckName}" in card "${cardName}"`
                 }
+
+                const rawPassedAt = rawDecks[deckName].passed_at;
+                const passedAt = rawPassedAt !== null ? 
+                    new Date(rawDecks[deckName].passed_at) : 
+                    undefined;
+                if (
+                    typeof passedAt !== "undefined" && 
+                    Number.isNaN(passedAt.getTime())
+                ) {
+                    throw `passed_at is not a valid ISO date in deck "${deckName}" in card "${cardName}"`
+                }
                 
                 cards.set(
                     cardName, 
                     {
                         repetition,
                         interval,
-                        efactor
+                        efactor,
+                        passedAt
                     }
                 );
             }
