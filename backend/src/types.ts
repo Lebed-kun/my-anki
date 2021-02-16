@@ -1,10 +1,14 @@
 import { ServiceContext } from "./service-context";
 
-export type AnkiCardRef = string;
+export interface AnkiCardRef {
+    repetition: number;
+    interval: number;
+    efactor: number;
+}
 
 export interface AnkiConfig {
     deckNames: string[],
-    decks: Map<string, AnkiCardRef[]>
+    decks: Map<string, Map<string, AnkiCardRef>>
 }
 
 export interface ServiceResponse {

@@ -6,6 +6,7 @@ export class ServiceContext {
     private _resourcesPath?: string;
     private _memConfig?: AnkiConfig;
     private _fallbackPage?: string;
+    private _migrationPath?: string;
 
     public get resourcesPath() {
         if (typeof this._resourcesPath !== "undefined") {
@@ -28,6 +29,14 @@ export class ServiceContext {
             return this._fallbackPage
         } else {
             throw "Default page not initialized!"
+        }
+    }
+
+    public get migrationPath() {
+        if (typeof this._migrationPath !== "undefined") {
+            return this._migrationPath
+        } else {
+            throw "Migration path not initialized!"
         }
     }
 
@@ -58,22 +67,44 @@ export class ServiceContext {
         return rawDeckNames;
     }
 
-    private unmarshallDecks(rawConfig: any): Map<string, AnkiCardRef[]> {
-        const decks: Map<string, AnkiCardRef[]> = new Map();
+    private unmarshallDecks(rawConfig: any): Map<string, Map<string, AnkiCardRef>> {
+        const decks: Map<string, Map<string, AnkiCardRef>> = new Map();
         const rawDecks = rawConfig.decks;
 
         for (let deckName in rawDecks) {
-            if (!Array.isArray(rawDecks[deckName])) {
+            if (typeof (rawDecks[deckName]) !== "object") {
                 throw `Object decks contain invalid anki ref list with name \"${deckName}\"!`;
             }
 
-            for (let i = 0; i < rawDecks[deckName].length; ++i) {
-                if (typeof rawDecks[deckName][i] !== "string") {
-                    throw `Object deck \"${deckName}\" contains invalid anki ref at ${i}!`;
+            const cards: Map<string, AnkiCardRef> = new Map();
+
+            for (let cardName in rawDecks[deckName]) {
+                const repetition = Number(rawDecks[deckName].repetition);
+                if (!Number.isFinite(repetition)) {
+                    throw `Repetition is not a number in deck "${deckName}" in card "${cardName}"`
                 }
+
+                const interval = Number(rawDecks[deckName].interval);
+                if (!Number.isFinite(interval)) {
+                    throw `Interval is not a number in deck "${deckName}" in card "${cardName}"`
+                }
+
+                const efactor = Number(rawDecks[deckName].efactor);
+                if (!Number.isFinite(efactor)) {
+                    throw `Efactor is not a number in deck "${deckName}" in card "${cardName}"`
+                }
+                
+                cards.set(
+                    cardName, 
+                    {
+                        repetition,
+                        interval,
+                        efactor
+                    }
+                );
             }
 
-            decks.set(deckName, rawDecks[deckName]);
+            decks.set(deckName, cards);
         }
 
         return decks;
@@ -118,11 +149,19 @@ export class ServiceContext {
             "..",
             process.env.PATH_RESOURCES!
         );
+        const migrationPath = path.join(
+            __dirname,
+            "..",
+            "..",
+            process.env.PATH_MIGRATION!
+        );
+
         const memConfig = this.setupConfig(resourcesPath);
         const fallbackPage = this.setupFallbackPage(resourcesPath);
 
         this._resourcesPath = resourcesPath;
         this._memConfig = memConfig;
         this._fallbackPage = fallbackPage;
+        this._migrationPath = migrationPath;
     }
 }

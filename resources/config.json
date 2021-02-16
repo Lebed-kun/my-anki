@@ -3,15 +3,13 @@
         "example-deck"
     ],
     "decks": {
-        "example-deck": [
-            "example-card"
-        ]
-    },
-    "supermemo-cards": {
-        "example-deck/example-card": {
-            "repetition": 0,
-            "interval": 0,
-            "efactor": 2.5
+        "example-deck": {
+            "example-card": {
+                "repetition": 0,
+                "interval": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
         }
     }
 }
