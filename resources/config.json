@@ -4,7 +4,14 @@
     ],
     "decks": {
         "example-deck": [
-            "card"
+            "example-card"
         ]
+    },
+    "supermemo-cards": {
+        "example-deck/example-card": {
+            "repetition": 0,
+            "interval": 0,
+            "efactor": 2.5
+        }
     }
 }
