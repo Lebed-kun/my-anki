@@ -3,6 +3,7 @@
         "algorithms-array",
         "algorithms-design",
         "algorithms-dynamic-programming",
+        "algorithms-graphs",
         "algorithms-linked-list",
         "algorithms-maths",
         "algorithms-others",
@@ -16,9 +17,12 @@
     ],
     "decks": {
         "algorithms-array": [
+            "array-nesting",
             "buy-and-sell-stock-2",
             "flatten-array",
             "intersection-of-two-arrays-2",
+            "nested-list-weight-sum",
+            "nested-list-weighted-sum-ii",
             "rotate-array",
             "rotate-image",
             "single-number",
@@ -26,7 +30,8 @@
         ],
         "algorithms-design": [
             "min-stack",
-            "shuffle-array"
+            "shuffle-array",
+            "zigzag-iterator"
         ],
         "algorithms-dynamic-programming": [
             "best-time-to-buy-sell-stock",
@@ -34,13 +39,21 @@
             "house-robber",
             "max-subarray"
         ],
+        "algorithms-graphs": [
+            "flood-fill"
+        ],
         "algorithms-linked-list": [
             "cycle",
+            "even-odd",
             "merge-two-lists",
             "palindrome-list",
-            "remove-nth-node-from-end"
+            "remove-duplicates-from-sorted",
+            "remove-duplicates-from-sorted-ii",
+            "remove-nth-node-from-end",
+            "split-into-k-buckets"
         ],
         "algorithms-maths": [
+            "lemonade-change",
             "roman-integer"
         ],
         "algorithms-others": [
@@ -65,10 +78,13 @@
         "algorithms-tree": [
             "bst-1",
             "bt-level-order-traversal",
+            "max-depth",
+            "postorder-traversal",
             "sort-arr-to-bst",
             "symmetric-tree"
         ],
         "databases": [
+            "second-highest-salary",
             "sql-vs-nosql"
         ],
         "example-deck": [
