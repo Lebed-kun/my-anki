@@ -1,0 +1,27 @@
+<pre>
+    var mergeInBetween = function(list1, a, b, list2) {
+        // 1. Find (a-1)-th node
+        let ptr1 = list1;
+        while (ptr1 !== null && ptr1.val !== (a - 1)) {
+          ptr1 = ptr1.next;
+        }
+        
+        // 2. Find (b+1)-th node
+        let ptr2 = ptr1;
+        while (ptr2 !== null && ptr2.val !== (b + 1)) {
+            ptr2 = ptr2.next;
+        }
+        
+        // 3. Find last node of 2nd list
+        let ptr3 = list2;
+        while (ptr3 !== null && ptr3.next !== null) {
+            ptr3 = ptr3.next;
+        }
+        
+        ptr3.next = ptr2;
+        ptr1.next = list2;
+        
+        
+        return list1;
+    };
+</pre>
