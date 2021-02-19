@@ -1,0 +1,40 @@
+<pre>
+    /**
+    * Definition for singly-linked list.
+    * function ListNode(val, next) {
+    *     this.val = (val===undefined ? 0 : val)
+    *     this.next = (next===undefined ? null : next)
+    * }
+    */
+    /**
+    * @param {ListNode} head
+    * @return {number[]}
+    */
+    var nextLargerNodes = function(head) {
+        const result = [];
+        
+        let ptr1 = head;
+        let ptr2 = null;
+        while (ptr1 !== null) {
+            let ptr2 = ptr1.next;
+            
+            while (ptr2 !== null) {
+                    if (ptr2.val > ptr1.val) {
+                        break;
+                    } 
+
+                    ptr2 = ptr2.next;
+            }
+            
+            if (ptr2 !== null) {
+                result.push(ptr2.val);
+            } else {
+                result.push(0);
+            }
+            
+            ptr1 = ptr1.next;
+        }
+        
+        return result;
+    };
+</pre>
