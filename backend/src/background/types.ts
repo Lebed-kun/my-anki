@@ -1,16 +1,15 @@
-import { AnkiCardRef } from "../types";
-import { SuperMemoGrade } from "../utils/supermemo";
+import { AnkiConfig } from "../types";
 
 export enum TaskType {
-    UpdateCard
+    UpdateMigration
 }
 
-interface UpdateTask {
-    cardName: string;
-    nextAnkiData: AnkiCardRef;
+export interface UpdateMigrationTask {
+    migrationPath: string;
+    ankiConfig: AnkiConfig;
 }
 
 export interface Task {
     type: TaskType,
-    payload: UpdateTask
+    payload?: UpdateMigrationTask,
 }

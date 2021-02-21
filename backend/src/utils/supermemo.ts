@@ -5,6 +5,10 @@ type SuperMemoItem = {
 };
   
 export type SuperMemoGrade = 0 | 1 | 2 | 3 | 4 | 5;
+
+export interface SuperMemoGradeDict {
+  [cardName: string]: SuperMemoGrade
+}
   
 export function supermemo(
     item: SuperMemoItem,

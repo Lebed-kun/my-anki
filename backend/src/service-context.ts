@@ -1,12 +1,22 @@
 import { AnkiConfig, AnkiCardRef } from "./types";
 import fs from "fs";
 import path from "path";
+import { Background } from "./background";
 
 export class ServiceContext {
     private _resourcesPath?: string;
     private _memConfig?: AnkiConfig;
     private _fallbackPage?: string;
     private _migrationPath?: string;
+    private _background?: Background;
+
+    public get background() {
+        if (typeof this._background !== "undefined") {
+            return this._background
+        } else {
+            throw "Background not initialized!"
+        }
+    }
 
     public get resourcesPath() {
         if (typeof this._resourcesPath !== "undefined") {
@@ -165,6 +175,7 @@ export class ServiceContext {
             __dirname,
             "..",
             "..",
+            process.env.PATH_RESOURCES!,
             process.env.PATH_MIGRATION!
         );
 
@@ -175,5 +186,6 @@ export class ServiceContext {
         this._memConfig = memConfig;
         this._fallbackPage = fallbackPage;
         this._migrationPath = migrationPath;
+        this._background = new Background();
     }
 }

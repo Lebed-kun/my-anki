@@ -1,12 +1,41 @@
 import { ServiceContext, Filter, AnkiCardRef } from "../types";
 import { corsHeaders } from "./cors";
-import { supermemo } from "../utils/supermemo";
+import { supermemo, SuperMemoGradeDict } from "../utils/supermemo";
+import { TaskType } from "../background/types";
 
 export class UpdateScoresFilter implements Filter {
     public validate(body: any) {
         return (typeof body === "object") &&
             (typeof body.deck_name === "string") &&
             (typeof body.cards === "object");
+    }
+
+    private updateDeck(
+        deck: Map<string, AnkiCardRef>,
+        deckCardGrades: SuperMemoGradeDict
+    ) {
+        for (let cardName in deckCardGrades) {
+            const cardData = deck.get(cardName);
+
+            if (cardData) {
+                const nextAnkiData = supermemo(
+                    {
+                        interval: cardData.interval,
+                        repetition: cardData.repetition,
+                        efactor: cardData.efactor
+                    },
+                    deckCardGrades[cardName]
+                );
+
+                deck.set(
+                    cardName,
+                    {
+                        ...nextAnkiData,
+                        passedAt: new Date()
+                    }
+                )
+            }
+        }
     }
 
     public async execute(body: any, context: ServiceContext) {
@@ -19,14 +48,34 @@ export class UpdateScoresFilter implements Filter {
                     "Content-Type": "text/plain",
                     ...corsHeaders
                 },
-                body: `Deck named "${body.name}" was not found!`
+                body: `Deck named "${body.deck_name}" was not found!`
             }
         }
         
-        const backgroundTasks = [];
+        this.updateDeck(
+            deck,
+            body.cards,
+        );
 
-        for (const [cardName, cardInfo] of deck) {
+        context.background.dispatch(
+            {
+                type: TaskType.UpdateMigration,
+                payload: {
+                    migrationPath: context.migrationPath,
+                    ankiConfig: context.memConfig
+                }
+            }
+        );
 
+        return {
+            status: Number(process.env.STATUS_OK!),
+            headers: {
+                "Content-Type": "application/json",
+                ...corsHeaders
+            },
+            body: JSON.stringify({
+                success: true
+            })
         }
     }
 }
