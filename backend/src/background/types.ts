@@ -4,12 +4,20 @@ export enum TaskType {
     UpdateMigration
 }
 
-export interface UpdateMigrationTask {
+interface UpdateMigrationTask {
     migrationPath: string;
     ankiConfig: AnkiConfig;
 }
 
+export type TaskPayload = UpdateMigrationTask;
+
 export interface Task {
     type: TaskType,
-    payload?: UpdateMigrationTask,
+    payload?: TaskPayload,
+}
+
+export interface Action {
+    execute(
+        payload?: TaskPayload 
+    ): Promise<any>
 }
