@@ -1,5 +1,5 @@
 import React from "react";
-import { useCards } from "./hooks";
+import { useCard } from "./hooks";
 import Card from "./card";
 import Answer from "./answer";
 import { ScreenTitle } from "../common";
@@ -7,89 +7,50 @@ import { useRouteMatch } from "react-router-dom";
 import styles from "./index.module.css";
 
 const RandomCard: React.FC = () => {
-    const match = useRouteMatch<{ name: string }>("/deck/:name");
-    const deckName = React.useMemo(
-        () => {
-            return match?.params.name;
-        },
-        [match?.params]
-    );
-
-    const { takeCard } = useCards(deckName);
-
-    const [pending, setPending] = React.useState(false);
-    const [front, setFront] = React.useState<string>();
-    const [back, setBack] = React.useState<string>();
-    const [error, setError] = React.useState<Error>();
-
-    const fetchCard = React.useCallback(
-        async () => {
-            try {
-                setPending(true);
-
-                const sides = await takeCard();
-
-                if (typeof sides !== "undefined") {
-                    setFront(sides.front);
-                    setBack(sides.back);
-                }
-            } catch (err) {
-                console.error(err);
-                setError(err);
-            } finally {
-                setPending(false);
-            }
-        },
-        [takeCard]
-    ) 
-        
-    React.useEffect(
-        () => {
-            fetchCard();
-        },
-        [fetchCard]
-    );
-
-    const [answered, setAnswered] = React.useState(false);
+    const card = useCard();
 
     return (
         <>
             {
-                pending ? (
+                card.pending ? (
                     <ScreenTitle>
                         Loading card...
                     </ScreenTitle>
-                ) : (front && back) ? (
+                ) : (card.front && card.back) ? (
                     <div>
                         <div className={styles.row}>
-                            <Card content={front} visible={true} />
+                            <Card content={card.front} visible={true} />
 
                             <div style={{ width: "20px" }} />
 
-                            <Card content={back} visible={answered} />
+                            <Card content={card.back} visible={card.answered} />
                         </div>
 
                         <div style={{ height: "20px" }} />
 
                         <Answer 
-                            onSubmit={() => setAnswered(true)}
+                            onSubmit={() => card.setAnswered(true)}
                         />
 
-                        <button
-                            onClick={() => {
-                                setAnswered(false);
-                                fetchCard();
-                            }}
-                            disabled={!answered}
-                        >
-                            Next
-                        </button>
+                        {
+                            card.hasNextCard ? (
+                                <button
+                                    onClick={() => {
+                                        card.setAnswered(false);
+                                        card.fetchCard();
+                                    }}
+                                    disabled={!card.answered}
+                                >
+                                    Next
+                                </button>
+                            ) : null
+                        }
                     </div>
-                ) : error ? (
+                ) : card.error ? (
                     <ScreenTitle>
                         Error occured: 
                         <br />
-                        {error.message}
+                        {card.error.message}
                     </ScreenTitle>
                 ) : null
             }

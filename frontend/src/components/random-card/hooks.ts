@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { RandStack } from "../../utils";
 import { useForceUpdate } from "../../hooks";
+import { useRouteMatch } from "react-router-dom";
 import { fetchCardRefs, fetchCardSides } from "./api";
 
 interface Card {
@@ -8,7 +9,7 @@ interface Card {
     back: string;
 }
 
-export const useCards = (deckName?: string) => {
+export const useCardsData = (deckName?: string) => {
     const forceUpdate = useForceUpdate();
     const [cardRefs, setCardRefs] = useState<RandStack<string>>();
 
@@ -17,9 +18,8 @@ export const useCards = (deckName?: string) => {
             if (deckName) {
                 fetchCardRefs(deckName).then(
                     cardRefs => {
-                        setCardRefs(
-                            new RandStack(cardRefs)
-                        );
+                        const stack = new RandStack<string>(cardRefs)
+                        setCardRefs(stack);
                     }
                 ).catch(err => console.error(err));
             }
@@ -37,8 +37,6 @@ export const useCards = (deckName?: string) => {
 
                 if (typeof cardName !== "undefined") {
                     const cardSides = await fetchCardSides(deckName, cardName);
-                    
-                    setCardRefs(cardRefs);
                     forceUpdate();
 
                     return cardSides
@@ -48,5 +46,71 @@ export const useCards = (deckName?: string) => {
         [deckName, cardRefs]
     );
 
-    return { takeCard };
+    
+
+    return { 
+        takeCard,
+        hasNextCard: !!cardRefs?.length
+    };
+}
+
+export const useCard = () => {
+    const match = useRouteMatch<{ name: string }>("/deck/:name");
+    const deckName = useMemo(
+        () => {
+            return match?.params.name;
+        },
+        [match?.params]
+    );
+
+    const { takeCard, hasNextCard } = useCardsData(deckName);
+
+    const [pending, setPending] = useState(false);
+    const [front, setFront] = useState<string>();
+    const [back, setBack] = useState<string>();
+    const [error, setError] = useState<Error>();
+
+    const fetchCard = useCallback(
+        async () => {
+            try {
+                setPending(true);
+
+                const sides = await takeCard();
+
+                if (typeof sides !== "undefined") {
+                    setFront(sides.front);
+                    setBack(sides.back);
+                }
+            } catch (err) {
+                console.error(err);
+                setError(err);
+            } finally {
+                setPending(false);
+            }
+        },
+        [takeCard]
+    ) 
+        
+    useEffect(
+        () => {
+            fetchCard();
+        },
+        [fetchCard]
+    );
+
+    const [answered, setAnswered] = useState(false);
+
+    return {
+        answered,
+        setAnswered,
+
+        fetchCard,
+
+        pending,
+        front,
+        back,
+        error,
+
+        hasNextCard
+    };
 }
