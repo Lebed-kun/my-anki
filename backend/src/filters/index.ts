@@ -5,6 +5,9 @@ import { DecksCardsFilter } from "./deck-cards";
 import { DecksFilter } from "./decks";
 import { GetTemplateFilter } from "./get-template";
 import { CorsFilter } from "./cors";
+import { UpdateScoresFilter } from "./update-scores";
+
+const cors = new CorsFilter();
 
 export const Router: Routes = new Map(
     [
@@ -23,6 +26,7 @@ export const Router: Routes = new Map(
                     ["card", new CardFilter()],
                     ["deck-cards", new DecksCardsFilter()],
                     ["decks", new DecksFilter()],
+                    ["update-scores", new UpdateScoresFilter()]
                 ]
             )
         ],
@@ -30,9 +34,10 @@ export const Router: Routes = new Map(
             "OPTIONS",
             new Map(
                 [
-                    ["card", new CorsFilter()],
-                    ["deck-cards", new CorsFilter()],
-                    ["decks", new CorsFilter()],
+                    ["card", cors],
+                    ["deck-cards", cors],
+                    ["decks", cors],
+                    ["update-scores", cors]
                 ]
             )
         ]
