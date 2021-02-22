@@ -3,9 +3,10 @@ import styles from "./answer.module.css";
 
 interface Props {
     onSubmit: (val: string) => void;
+    refSetValue: React.MutableRefObject<((v: string) => void) | undefined>;
 }
 
-const Answer: React.FC<Props> = ({ onSubmit }) => {
+const Answer: React.FC<Props> = ({ onSubmit, refSetValue }) => {
     const [value, setValue] = React.useState("");
     
     const onChange = React.useCallback(
@@ -20,7 +21,14 @@ const Answer: React.FC<Props> = ({ onSubmit }) => {
             onSubmit(e.currentTarget.value);
         },
         [onSubmit]
-    ) ;
+    );
+
+    React.useEffect(
+        () => {
+            refSetValue.current = setValue;
+        },
+        []
+    );
 
     return (
         <div className={styles.answer}>

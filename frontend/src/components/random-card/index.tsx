@@ -1,98 +1,42 @@
 import React from "react";
-import { useCards } from "./hooks";
+import { useCard } from "./hooks";
 import Card from "./card";
 import Answer from "./answer";
-import { ScreenTitle } from "../common";
-import { useRouteMatch } from "react-router-dom";
+import { ScreenTitle, Fence } from "../common";
 import styles from "./index.module.css";
+import AnkiScreen from "./anki-screen";
 
 const RandomCard: React.FC = () => {
-    const match = useRouteMatch<{ name: string }>("/deck/:name");
-    const deckName = React.useMemo(
-        () => {
-            return match?.params.name;
-        },
-        [match?.params]
-    );
-
-    const { takeCard } = useCards(deckName);
-
-    const [pending, setPending] = React.useState(false);
-    const [front, setFront] = React.useState<string>();
-    const [back, setBack] = React.useState<string>();
-    const [error, setError] = React.useState<Error>();
-
-    const fetchCard = React.useCallback(
-        async () => {
-            try {
-                setPending(true);
-
-                const sides = await takeCard();
-
-                if (typeof sides !== "undefined") {
-                    setFront(sides.front);
-                    setBack(sides.back);
-                }
-            } catch (err) {
-                console.error(err);
-                setError(err);
-            } finally {
-                setPending(false);
-            }
-        },
-        [takeCard]
-    ) 
-        
-    React.useEffect(
-        () => {
-            fetchCard();
-        },
-        [fetchCard]
-    );
-
-    const [answered, setAnswered] = React.useState(false);
+    const card = useCard();
 
     return (
         <>
-            {
-                pending ? (
-                    <ScreenTitle>
-                        Loading card...
-                    </ScreenTitle>
-                ) : (front && back) ? (
-                    <div>
-                        <div className={styles.row}>
-                            <Card content={front} visible={true} />
+            <Fence visible={card.pending}>
+                <ScreenTitle>
+                    Loading card...
+                </ScreenTitle>
+            </Fence>
 
-                            <div style={{ width: "20px" }} />
+            <Fence visible={!!card.front && !!card.back}>
+                <AnkiScreen
+                    cardName={card.cardName ?? ""}
+                    deckName={card.deckName ?? ""} 
+                    front={card.front ?? ""}
+                    back={card.back ?? ""}
+                    answered={card.answered}
+                    setAnswered={card.setAnswered}
+                    hasNextCard={card.hasNextCard}
+                    fetchCard={card.fetchCard}
+                />
+            </Fence>
 
-                            <Card content={back} visible={answered} />
-                        </div>
-
-                        <div style={{ height: "20px" }} />
-
-                        <Answer 
-                            onSubmit={() => setAnswered(true)}
-                        />
-
-                        <button
-                            onClick={() => {
-                                setAnswered(false);
-                                fetchCard();
-                            }}
-                            disabled={!answered}
-                        >
-                            Next
-                        </button>
-                    </div>
-                ) : error ? (
-                    <ScreenTitle>
-                        Error occured: 
-                        <br />
-                        {error.message}
-                    </ScreenTitle>
-                ) : null
-            }
+            <Fence visible={!!card.error}>
+                <ScreenTitle>
+                    Error occured: 
+                    <br />
+                    {card.error?.message ?? ""}
+                </ScreenTitle>
+            </Fence>
         </>
     )
 }

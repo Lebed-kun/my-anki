@@ -27,7 +27,7 @@ class RandStack<T> {
         return this._stack[this._stack.length - 1];
     }
 
-    public length(): number {
+    public get length(): number {
         return this._stack.length;
     }
 }

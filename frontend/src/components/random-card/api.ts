@@ -1,4 +1,5 @@
 import { BACKEND_URL } from "../../constants";
+import { GradeDict } from "../select-grade";
 
 export const fetchCardRefs = async (deckName: string) => {
     const res = await fetch(
@@ -33,4 +34,24 @@ export const fetchCardSides = async (deckName: string, cardName: string) => {
     );
 
     return res.json();
+}
+
+export const updateScores = async (deckName: string, cards: GradeDict) => {
+    const body = await JSON.stringify({
+        deck_name: deckName,
+        cards
+    });
+
+    const resp = await fetch(
+        `${BACKEND_URL}/update-scores`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body
+        }
+    );
+
+    return resp.json();
 }

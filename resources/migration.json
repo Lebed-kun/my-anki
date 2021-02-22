@@ -1,0 +1,15 @@
+{
+    "deck_names": [
+        "example-deck-2"
+    ],
+    "decks": {
+        "example-deck-2": {
+            "example-deck-2": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-02-22T11:14:05.690Z"
+            }
+        }
+    }
+}

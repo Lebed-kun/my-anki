@@ -9,20 +9,33 @@
 
     <li>
         <b>/deck-cards</b> - get deck refs to cards;
-        <p>
+        <pre>
             body: {
-                name: string
+                name: string,
+                supermemoOn: boolean | undef
             }
-        </p>
+        </pre>
     </li>
 
     <li>
         <b>/card</b> - get card info;
-        <p>
+        <pre>
             body: {
                 deck_name: string,
                 card_name: string
             }
-        </p>
+        </pre>
+    </li>
+
+    <li>
+        <b>/update-scores</b> - update scores after passing a deck;
+        <pre>
+            body: {
+                deck_name: string,
+                cards: {
+                    [card_name: string]: 0 | 1 | 2 | 3 | 4 | 5;
+                }
+            }
+        </pre>
     </li>
 </ul>
