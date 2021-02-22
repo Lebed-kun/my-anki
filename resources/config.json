@@ -1,26 +1,14 @@
 {
     "deck_names": [
-        "example-deck"
+        "example-deck-2"
     ],
     "decks": {
-        "example-deck": {
-            "example-card": {
+        "example-deck-2": {
+            "example-deck-2": {
                 "repetition": 0,
                 "interval": 0,
                 "efactor": 2.5,
                 "passed_at": null
-            },
-            "example-card2": {
-                "repetition": 0,
-                "interval": 4,
-                "efactor": 5.5,
-                "passed_at": "2021-02-20T19:46:36.276Z"
-            },
-            "example-card3": {
-                "repetition": 0,
-                "interval": 4,
-                "efactor": 5.5,
-                "passed_at": "2021-02-19T19:46:36.276Z"
             }
         }
     }
