@@ -2,58 +2,41 @@ import React from "react";
 import { useCard } from "./hooks";
 import Card from "./card";
 import Answer from "./answer";
-import { ScreenTitle } from "../common";
-import { useRouteMatch } from "react-router-dom";
+import { ScreenTitle, Fence } from "../common";
 import styles from "./index.module.css";
+import AnkiScreen from "./anki-screen";
 
 const RandomCard: React.FC = () => {
     const card = useCard();
 
     return (
         <>
-            {
-                card.pending ? (
-                    <ScreenTitle>
-                        Loading card...
-                    </ScreenTitle>
-                ) : (card.front && card.back) ? (
-                    <div>
-                        <div className={styles.row}>
-                            <Card content={card.front} visible={true} />
+            <Fence visible={card.pending}>
+                <ScreenTitle>
+                    Loading card...
+                </ScreenTitle>
+            </Fence>
 
-                            <div style={{ width: "20px" }} />
+            <Fence visible={!!card.front && !!card.back}>
+                <AnkiScreen
+                    cardName={card.cardName ?? ""}
+                    deckName={card.deckName ?? ""} 
+                    front={card.front ?? ""}
+                    back={card.back ?? ""}
+                    answered={card.answered}
+                    setAnswered={card.setAnswered}
+                    hasNextCard={card.hasNextCard}
+                    fetchCard={card.fetchCard}
+                />
+            </Fence>
 
-                            <Card content={card.back} visible={card.answered} />
-                        </div>
-
-                        <div style={{ height: "20px" }} />
-
-                        <Answer 
-                            onSubmit={() => card.setAnswered(true)}
-                        />
-
-                        {
-                            card.hasNextCard ? (
-                                <button
-                                    onClick={() => {
-                                        card.setAnswered(false);
-                                        card.fetchCard();
-                                    }}
-                                    disabled={!card.answered}
-                                >
-                                    Next
-                                </button>
-                            ) : null
-                        }
-                    </div>
-                ) : card.error ? (
-                    <ScreenTitle>
-                        Error occured: 
-                        <br />
-                        {card.error.message}
-                    </ScreenTitle>
-                ) : null
-            }
+            <Fence visible={!!card.error}>
+                <ScreenTitle>
+                    Error occured: 
+                    <br />
+                    {card.error?.message ?? ""}
+                </ScreenTitle>
+            </Fence>
         </>
     )
 }

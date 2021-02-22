@@ -9,6 +9,11 @@ interface Card {
     back: string;
 }
 
+interface CardInfo {
+    name: string;
+    content: Card;
+}
+
 export const useCardsData = (deckName?: string) => {
     const forceUpdate = useForceUpdate();
     const [cardRefs, setCardRefs] = useState<RandStack<string>>();
@@ -18,7 +23,7 @@ export const useCardsData = (deckName?: string) => {
             if (deckName) {
                 fetchCardRefs(deckName).then(
                     cardRefs => {
-                        const stack = new RandStack<string>(cardRefs)
+                        const stack = new RandStack<string>(cardRefs);
                         setCardRefs(stack);
                     }
                 ).catch(err => console.error(err));
@@ -28,7 +33,7 @@ export const useCardsData = (deckName?: string) => {
     );
 
     const takeCard = useCallback(
-        async (): Promise<Card | undefined> => {
+        async (): Promise<CardInfo | undefined> => {
             if (
                 (typeof cardRefs !== "undefined") &&
                 (typeof deckName !== "undefined")
@@ -39,14 +44,15 @@ export const useCardsData = (deckName?: string) => {
                     const cardSides = await fetchCardSides(deckName, cardName);
                     forceUpdate();
 
-                    return cardSides
+                    return { 
+                        name: cardName,
+                        content: cardSides
+                     }
                 }
             }
         },
         [deckName, cardRefs]
     );
-
-    
 
     return { 
         takeCard,
@@ -68,6 +74,7 @@ export const useCard = () => {
     const [pending, setPending] = useState(false);
     const [front, setFront] = useState<string>();
     const [back, setBack] = useState<string>();
+    const [cardName, setCardName] = useState<string>();
     const [error, setError] = useState<Error>();
 
     const fetchCard = useCallback(
@@ -75,11 +82,12 @@ export const useCard = () => {
             try {
                 setPending(true);
 
-                const sides = await takeCard();
+                const info = await takeCard();
 
-                if (typeof sides !== "undefined") {
-                    setFront(sides.front);
-                    setBack(sides.back);
+                if (typeof info !== "undefined") {
+                    setCardName(info.name);
+                    setFront(info.content.front);
+                    setBack(info.content.back);
                 }
             } catch (err) {
                 console.error(err);
@@ -107,6 +115,8 @@ export const useCard = () => {
         fetchCard,
 
         pending,
+        cardName,
+        deckName,
         front,
         back,
         error,
