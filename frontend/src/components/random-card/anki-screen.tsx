@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 import Answer from "./answer";
 import SelectGrade, { Grade, GradeDict } from "../select-grade";
 import { updateScores } from "./api";
+import { useHistory } from "react-router-dom";
 
 interface Props {
     cardName: string;
@@ -19,6 +20,7 @@ interface Props {
 };
 
 const AnkiScreen: React.FC<Props> = (props) => {
+    const history = useHistory();
     const [grade, setGrade] = React.useState<Grade>(0);
     const grades = React.useRef<GradeDict>({});
     const refSetAnswer = React.useRef<(v: string) => void>();
@@ -40,9 +42,7 @@ const AnkiScreen: React.FC<Props> = (props) => {
 
             updateScores(props.deckName, grades.current)
                 .then(
-                    () => {
- 
-                    }
+                    () => history.push("/finish")
                 )
                 .catch(
                     err => console.error(err)

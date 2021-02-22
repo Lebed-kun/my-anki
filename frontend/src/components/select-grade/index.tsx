@@ -1,9 +1,8 @@
 import React from "react";
+import styles from "./index.module.css";
 
 export type Grade = 0 | 1 | 2 | 3 | 4 | 5;
-
 const grades: Grade[] = [0, 1, 2, 3, 4, 5];
-
 export interface GradeDict {
     [cardName: string]: Grade;
 }
@@ -33,6 +32,7 @@ const SelectGrade: React.FC<Props> = ({ onChange }) => {
                             name="grade"
                             value={grade.toString()}
                             onChange={(e) => onChange(Number(e.currentTarget.value) as any)}
+                            className={styles.radio}
                         />
                     </>
                 ))}
