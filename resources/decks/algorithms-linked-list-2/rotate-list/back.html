@@ -1,0 +1,49 @@
+<pre>
+    /**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+var rotateRight = function(head, k) {
+    if (head === null) return head;
+    
+    // 1. Count number of elements in list
+    let count = 0;
+    let cntPtr = head;
+    while (cntPtr !== null) {
+        cntPtr = cntPtr.next;
+        count++;
+    }
+    
+    // 2. Normalize k
+    k = k % count;
+    
+    // 3. Find pointers of tail part
+    let tailCurrPtr = head;
+    let tailNextPtr = head.next;
+    while (
+        (tailCurrPtr !== null) &&
+        (tailNextPtr !== null) &&
+        (count !== (k + 1))
+    ) {
+        tailCurrPtr = tailCurrPtr.next;
+        tailNextPtr = tailNextPtr.next;
+        count--;
+    }
+    
+    // Algo made full rotation to original list
+    if (tailNextPtr === null) return head;
+    
+    // 4. Find tail of head part
+    let headTail = tailNextPtr;
+    while (headTail.next !== null) {
+        headTail = headTail.next;
+    }
+    
+    // 5. Glue head with tail
+    tailCurrPtr.next = null;
+    headTail.next = head;
+    
+    return tailNextPtr;
+};
+</pre>
