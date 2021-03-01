@@ -10,7 +10,8 @@ export const fetchCardRefs = async (deckName: string) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name: deckName
+                name: deckName,
+                supermemoOn: true
             })
         }
     );
