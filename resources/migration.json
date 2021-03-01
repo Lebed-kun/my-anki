@@ -1,14 +1,482 @@
 {
     "deck_names": [
-        "example-deck-2"
+        "algorithms-array",
+        "algorithms-design",
+        "algorithms-dynamic-programming",
+        "algorithms-graphs",
+        "algorithms-linked-list",
+        "algorithms-linked-list-2",
+        "algorithms-maths",
+        "algorithms-others",
+        "algorithms-sorting-search",
+        "algorithms-string",
+        "algorithms-tree",
+        "databases",
+        "example-deck-2",
+        "javascript",
+        "javascript-2"
     ],
     "decks": {
-        "example-deck-2": {
-            "example-deck-2": {
+        "algorithms-array": {
+            "array-nesting": {
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.5,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "buy-and-sell-stock-2": {
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.5,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "flatten-array": {
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "intersection-of-two-arrays-2": {
                 "interval": 1,
                 "repetition": 0,
                 "efactor": 1.7000000000000002,
-                "passed_at": "2021-02-22T11:14:05.690Z"
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "nested-list-weight-sum": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.96,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "nested-list-weighted-sum-ii": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "rotate-array": {
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "rotate-image": {
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "single-number": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            },
+            "valid-sudoku": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.96,
+                "passed_at": "2021-03-01T21:04:17.682Z"
+            }
+        },
+        "algorithms-design": {
+            "min-stack": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "shuffle-array": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "zigzag-iterator": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "algorithms-dynamic-programming": {
+            "best-time-to-buy-sell-stock": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "climbing-stairs": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "house-robber": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "max-subarray": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "algorithms-graphs": {
+            "flood-fill": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "algorithms-linked-list": {
+            "cycle": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:27:18.268Z"
+            },
+            "even-odd": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.1799999999999997,
+                "passed_at": "2021-03-01T21:27:18.268Z"
+            },
+            "merge-in-between": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.96,
+                "passed_at": "2021-03-01T21:27:18.268Z"
+            },
+            "merge-two-lists": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "palindrome-list": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "remove-duplicates-from-sorted": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:27:18.268Z"
+            },
+            "remove-duplicates-from-sorted-ii": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:27:18.268Z"
+            },
+            "remove-nth-node-from-end": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:27:18.268Z"
+            },
+            "split-into-k-buckets": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 1.96,
+                "passed_at": "2021-03-01T21:27:18.268Z"
+            }
+        },
+        "algorithms-linked-list-2": {
+            "next-greater-node": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "algorithms-maths": {
+            "lemonade-change": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "roman-integer": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "algorithms-others": {
+            "hamming-distance": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "missing-number": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "number-1-bits": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "reverse-bits": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "algorithms-sorting-search": {
+            "first-bad-version": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "merge-sorted-array": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "algorithms-string": {
+            "count-and-say": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "group-anagrams": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "longest-common-prefix": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "reverse-string": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "string-to-integer": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "valid-anagram": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "valid-palindrome": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "algorithms-tree": {
+            "bst-1": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "bt-level-order-traversal": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "max-depth": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "postorder-traversal": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "preorder-traversal": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "sort-arr-to-bst": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "symmetric-tree": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "databases": {
+            "second-highest-salary": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "sql-vs-nosql": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "example-deck-2": {
+            "example-deck-2": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "javascript": {
+            "context-1": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "context-2": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "context-3": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "context-4": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "function-context": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "functions-1": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "promises-1": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "prototypes-1": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "prototypes-2": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "prototypes-3": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "prototypes-4": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "prototypes-5": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "prototypes-instanceof": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            }
+        },
+        "javascript-2": {
+            "functions-1": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "promise-star": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "promises-1": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "promises-2": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "promises-3": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "promises-4": {
+                "interval": 0,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
             }
         }
     }

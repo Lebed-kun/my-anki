@@ -19,462 +19,462 @@
     "decks": {
         "algorithms-array": {
             "array-nesting": {
-                "repetition": 0,
-                "interval": 0,
+                "interval": 1,
+                "repetition": 1,
                 "efactor": 2.5,
-                "passed_at": null
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "buy-and-sell-stock-2": {
-                "repetition": 0,
-                "interval": 0,
+                "interval": 1,
+                "repetition": 1,
                 "efactor": 2.5,
-                "passed_at": null
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "flatten-array": {
-                "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "intersection-of-two-arrays-2": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "nested-list-weight-sum": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.96,
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "nested-list-weighted-sum-ii": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "rotate-array": {
-                "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "rotate-image": {
-                "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "single-number": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 2.1799999999999997,
+                "passed_at": "2021-03-01T21:04:17.682Z"
             },
             "valid-sudoku": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.96,
+                "passed_at": "2021-03-01T21:04:17.682Z"
             }
         },
         "algorithms-design": {
             "min-stack": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "shuffle-array": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "zigzag-iterator": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "algorithms-dynamic-programming": {
             "best-time-to-buy-sell-stock": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "climbing-stairs": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "house-robber": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "max-subarray": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "algorithms-graphs": {
             "flood-fill": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "algorithms-linked-list": {
             "cycle": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:27:18.268Z"
             },
             "even-odd": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 2.1799999999999997,
+                "passed_at": "2021-03-01T21:27:18.268Z"
             },
             "merge-in-between": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.96,
+                "passed_at": "2021-03-01T21:27:18.268Z"
             },
             "merge-two-lists": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "palindrome-list": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "remove-duplicates-from-sorted": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:27:18.268Z"
             },
             "remove-duplicates-from-sorted-ii": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:27:18.268Z"
             },
             "remove-nth-node-from-end": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-01T21:27:18.268Z"
             },
             "split-into-k-buckets": {
+                "interval": 1,
                 "repetition": 0,
-                "interval": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.96,
+                "passed_at": "2021-03-01T21:27:18.268Z"
             }
         },
         "algorithms-linked-list-2": {
             "next-greater-node": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "algorithms-maths": {
             "lemonade-change": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "roman-integer": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "algorithms-others": {
             "hamming-distance": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "missing-number": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "number-1-bits": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "reverse-bits": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "algorithms-sorting-search": {
             "first-bad-version": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "merge-sorted-array": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "algorithms-string": {
             "count-and-say": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "group-anagrams": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "longest-common-prefix": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "reverse-string": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "string-to-integer": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "valid-anagram": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "valid-palindrome": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "algorithms-tree": {
             "bst-1": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "bt-level-order-traversal": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "max-depth": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "postorder-traversal": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "preorder-traversal": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "sort-arr-to-bst": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "symmetric-tree": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "databases": {
             "second-highest-salary": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "sql-vs-nosql": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "example-deck-2": {
             "example-deck-2": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "javascript": {
             "context-1": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "context-2": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "context-3": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "context-4": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "function-context": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "functions-1": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "promises-1": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "prototypes-1": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "prototypes-2": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "prototypes-3": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "prototypes-4": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "prototypes-5": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "prototypes-instanceof": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
         },
         "javascript-2": {
             "functions-1": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "promise-star": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "promises-1": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "promises-2": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "promises-3": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             },
             "promises-4": {
-                "repetition": 0,
                 "interval": 0,
+                "repetition": 0,
                 "efactor": 2.5,
                 "passed_at": null
             }
