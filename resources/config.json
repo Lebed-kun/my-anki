@@ -101,28 +101,28 @@
         },
         "algorithms-dynamic-programming": {
             "best-time-to-buy-sell-stock": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-02T20:55:14.640Z"
             },
             "climbing-stairs": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-02T20:55:14.640Z"
             },
             "house-robber": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-02T20:55:14.640Z"
             },
             "max-subarray": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.36,
+                "passed_at": "2021-03-02T20:55:14.640Z"
             }
         },
         "algorithms-graphs": {
@@ -363,120 +363,120 @@
         },
         "javascript": {
             "context-1": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "context-2": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.36,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "context-3": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.96,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "context-4": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "function-context": {
-                "interval": 0,
-                "repetition": 0,
+                "interval": 1,
+                "repetition": 1,
                 "efactor": 2.5,
-                "passed_at": null
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "functions-1": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 2.1799999999999997,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "promises-1": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "prototypes-1": {
-                "interval": 0,
-                "repetition": 0,
+                "interval": 1,
+                "repetition": 1,
                 "efactor": 2.5,
-                "passed_at": null
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "prototypes-2": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "prototypes-3": {
-                "interval": 0,
-                "repetition": 0,
+                "interval": 1,
+                "repetition": 1,
                 "efactor": 2.5,
-                "passed_at": null
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "prototypes-4": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "prototypes-5": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.36,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             },
             "prototypes-instanceof": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.96,
+                "passed_at": "2021-03-02T21:35:15.600Z"
             }
         },
         "javascript-2": {
             "functions-1": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-02T21:05:55.155Z"
             },
             "promise-star": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-02T21:05:55.155Z"
             },
             "promises-1": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-02T21:05:55.155Z"
             },
             "promises-2": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-02T21:05:55.155Z"
             },
             "promises-3": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.36,
+                "passed_at": "2021-03-02T21:05:55.155Z"
             },
             "promises-4": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-02T21:05:55.155Z"
             }
         }
     }
