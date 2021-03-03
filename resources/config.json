@@ -253,90 +253,90 @@
         },
         "algorithms-string": {
             "count-and-say": {
-                "interval": 0,
-                "repetition": 0,
+                "interval": 1,
+                "repetition": 1,
                 "efactor": 2.5,
-                "passed_at": null
+                "passed_at": "2021-03-03T20:49:50.011Z"
             },
             "group-anagrams": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.96,
+                "passed_at": "2021-03-03T20:49:50.011Z"
             },
             "longest-common-prefix": {
-                "interval": 0,
-                "repetition": 0,
+                "interval": 1,
+                "repetition": 1,
                 "efactor": 2.5,
-                "passed_at": null
+                "passed_at": "2021-03-03T20:49:50.011Z"
             },
             "reverse-string": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-03T20:49:50.011Z"
             },
             "string-to-integer": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-03T20:49:50.011Z"
             },
             "valid-anagram": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-03T20:49:50.011Z"
             },
             "valid-palindrome": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-03T20:49:50.011Z"
             }
         },
         "algorithms-tree": {
             "bst-1": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-03T21:15:50.388Z"
             },
             "bt-level-order-traversal": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-03T21:15:50.388Z"
             },
             "max-depth": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-03T21:15:50.388Z"
             },
             "postorder-traversal": {
-                "interval": 0,
-                "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "interval": 1,
+                "repetition": 1,
+                "efactor": 2.6,
+                "passed_at": "2021-03-03T21:15:50.388Z"
             },
             "preorder-traversal": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-03T21:15:50.388Z"
             },
             "sort-arr-to-bst": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.96,
+                "passed_at": "2021-03-03T21:15:50.388Z"
             },
             "symmetric-tree": {
-                "interval": 0,
+                "interval": 1,
                 "repetition": 0,
-                "efactor": 2.5,
-                "passed_at": null
+                "efactor": 1.7000000000000002,
+                "passed_at": "2021-03-03T21:15:50.388Z"
             }
         },
         "databases": {
