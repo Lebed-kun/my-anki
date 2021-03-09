@@ -253,46 +253,46 @@
         },
         "algorithms-string": {
             "count-and-say": {
-                "interval": 1,
-                "repetition": 1,
-                "efactor": 2.5,
-                "passed_at": "2021-03-03T20:49:50.011Z"
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.6,
+                "passed_at": "2021-03-09T19:59:55.504Z"
             },
             "group-anagrams": {
                 "interval": 1,
                 "repetition": 0,
-                "efactor": 1.96,
-                "passed_at": "2021-03-03T20:49:50.011Z"
+                "efactor": 1.3,
+                "passed_at": "2021-03-09T19:59:55.504Z"
             },
             "longest-common-prefix": {
-                "interval": 1,
-                "repetition": 1,
-                "efactor": 2.5,
-                "passed_at": "2021-03-03T20:49:50.011Z"
+                "interval": 6,
+                "repetition": 2,
+                "efactor": 2.6,
+                "passed_at": "2021-03-09T19:59:55.504Z"
             },
             "reverse-string": {
                 "interval": 1,
-                "repetition": 1,
-                "efactor": 2.6,
-                "passed_at": "2021-03-03T20:49:50.011Z"
+                "repetition": 0,
+                "efactor": 2.2800000000000002,
+                "passed_at": "2021-03-09T19:59:55.504Z"
             },
             "string-to-integer": {
                 "interval": 1,
-                "repetition": 0,
-                "efactor": 1.7000000000000002,
-                "passed_at": "2021-03-03T20:49:50.011Z"
+                "repetition": 1,
+                "efactor": 1.8000000000000003,
+                "passed_at": "2021-03-09T19:59:55.504Z"
             },
             "valid-anagram": {
                 "interval": 1,
-                "repetition": 1,
-                "efactor": 2.6,
-                "passed_at": "2021-03-03T20:49:50.011Z"
+                "repetition": 0,
+                "efactor": 1.8000000000000003,
+                "passed_at": "2021-03-09T19:59:55.504Z"
             },
             "valid-palindrome": {
                 "interval": 1,
-                "repetition": 0,
-                "efactor": 1.7000000000000002,
-                "passed_at": "2021-03-03T20:49:50.011Z"
+                "repetition": 1,
+                "efactor": 1.8000000000000003,
+                "passed_at": "2021-03-09T19:59:55.504Z"
             }
         },
         "algorithms-tree": {
