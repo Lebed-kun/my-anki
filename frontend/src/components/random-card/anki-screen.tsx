@@ -33,7 +33,7 @@ const AnkiScreen: React.FC<Props> = (props) => {
             grades.current[props.cardName] = grade;
             refSetAnswer.current?.("");
         },
-        [props.setAnswered, props.fetchCard, props.cardName]
+        [props.setAnswered, props.fetchCard, props.cardName, grade]
     );
 
     const onFinish = React.useCallback(
@@ -48,7 +48,7 @@ const AnkiScreen: React.FC<Props> = (props) => {
                     err => console.error(err)
                 );
         },
-        [props.cardName, props.deckName]
+        [props.cardName, props.deckName, grade]
     );
 
     return (
