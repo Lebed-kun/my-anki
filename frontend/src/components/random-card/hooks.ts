@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { RandStack } from "../../utils";
 import { useForceUpdate } from "../../hooks";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, useHistory } from "react-router-dom";
 import { fetchCardRefs, fetchCardSides } from "./api";
 
 interface Card {
@@ -17,6 +17,7 @@ interface CardInfo {
 export const useCardsData = (deckName?: string) => {
     const forceUpdate = useForceUpdate();
     const [cardRefs, setCardRefs] = useState<RandStack<string>>();
+    const [initRefsCount, setInitRefsCount] = useState<number>();
 
     useEffect(
         () => {
@@ -25,6 +26,7 @@ export const useCardsData = (deckName?: string) => {
                     cardRefs => {
                         const stack = new RandStack<string>(cardRefs);
                         setCardRefs(stack);
+                        setInitRefsCount(stack.length);
                     }
                 ).catch(err => console.error(err));
             }
@@ -56,12 +58,14 @@ export const useCardsData = (deckName?: string) => {
 
     return { 
         takeCard,
-        hasNextCard: !!cardRefs?.length
+        hasNextCard: !!cardRefs?.length,
+        initRefsCount
     };
 }
 
 export const useCard = () => {
     const match = useRouteMatch<{ name: string }>("/deck/:name");
+    const history = useHistory();
     const deckName = useMemo(
         () => {
             return match?.params.name;
@@ -69,7 +73,7 @@ export const useCard = () => {
         [match?.params]
     );
 
-    const { takeCard, hasNextCard } = useCardsData(deckName);
+    const { takeCard, hasNextCard, initRefsCount } = useCardsData(deckName);
 
     const [pending, setPending] = useState(false);
     const [front, setFront] = useState<string>();
@@ -79,26 +83,32 @@ export const useCard = () => {
 
     const fetchCard = useCallback(
         async () => {
-            try {
-                setPending(true);
+            if (typeof initRefsCount !== "undefined") {
+                try {
+                    if (initRefsCount < 1) {
+                        history.push("/finish");
+                        return;
+                    }
 
-                const info = await takeCard();
-
-                if (typeof info !== "undefined") {
-                    setCardName(info.name);
-                    setFront(info.content.front);
-                    setBack(info.content.back);
+                    setPending(true);
+                    const info = await takeCard();
+    
+                    if (typeof info !== "undefined") {
+                        setCardName(info.name);
+                        setFront(info.content.front);
+                        setBack(info.content.back);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    setError(err);
+                } finally {
+                    setPending(false);
                 }
-            } catch (err) {
-                console.error(err);
-                setError(err);
-            } finally {
-                setPending(false);
             }
         },
-        [takeCard]
+        [takeCard, initRefsCount]
     ) 
-        
+      
     useEffect(
         () => {
             fetchCard();
