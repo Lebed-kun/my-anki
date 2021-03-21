@@ -4,11 +4,23 @@
     ],
     "decks": {
         "example-deck-2": {
-            "example-deck-2": {
+            "example-card-2": {
                 "interval": 1,
                 "repetition": 0,
-                "efactor": 1.7000000000000002,
-                "passed_at": "2021-02-22T11:14:05.690Z"
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "example-card-3": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
+            },
+            "example-card-4": {
+                "interval": 1,
+                "repetition": 0,
+                "efactor": 2.5,
+                "passed_at": null
             }
         }
     }
