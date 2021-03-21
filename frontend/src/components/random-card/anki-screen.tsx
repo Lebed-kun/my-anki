@@ -25,12 +25,17 @@ const AnkiScreen: React.FC<Props> = (props) => {
     const grades = React.useRef<GradeDict>({});
     const refSetAnswer = React.useRef<(v: string) => void>();
 
+    React.useEffect(
+        () => {
+            grades.current[props.cardName] = grade;
+        },
+        [grade, props.cardName]
+    );
+
     const onNext = React.useCallback(
         () => {
             props.setAnswered(false);
             props.fetchCard();
-
-            grades.current[props.cardName] = grade;
             refSetAnswer.current?.("");
         },
         [props.setAnswered, props.fetchCard, props.cardName, grade]
@@ -38,8 +43,6 @@ const AnkiScreen: React.FC<Props> = (props) => {
 
     const onFinish = React.useCallback(
         () => {
-            grades.current[props.cardName] = grade;
-
             updateScores(props.deckName, grades.current)
                 .then(
                     () => history.push("/finish")
