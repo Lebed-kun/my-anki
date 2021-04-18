@@ -1,0 +1,37 @@
+<pre>
+    /**
+    * @param {number[]} nums
+    * @param {number} k
+    * @return {number[]}
+    */
+    var topKFrequent = function(nums, k) {
+        // 1. Build hashmap of el -> freq
+        const map = {};
+        for (let i = 0; i < nums.length; i++) {
+            if (!map[nums[i]]) {
+                map[nums[i]] = 0;
+            }
+            
+            map[nums[i]]++;
+        }
+        
+        // 2. Sort out k most frequents
+        const result = [];
+        for (let i = 0; i < k; i++) {
+            let maxKey = null;
+            let maxFreq = 0;
+            
+            for (let key in map) {
+                if (map[key] > maxFreq) {
+                    maxKey = key;
+                    maxFreq = map[key];
+                }
+            }
+            
+            delete map[maxKey];
+            result.push(maxKey);
+        }
+        
+        return result;
+    };
+</pre>

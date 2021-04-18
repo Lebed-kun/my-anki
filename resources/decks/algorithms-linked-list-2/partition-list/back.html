@@ -1,0 +1,37 @@
+<pre>
+    /**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} x
+ * @return {ListNode}
+ */
+var partition = function(head, x) {
+    const leBucket = new ListNode(0);
+    let leBucketPtr = leBucket;
+    const gteBucket = new ListNode(0);
+    let gteBucketPtr = gteBucket;
+    
+    let curr = head;
+    while (curr !== null) {
+        if (curr.val < x) {
+          leBucketPtr.next = curr;  
+          leBucketPtr = leBucketPtr.next;
+        } else {
+          gteBucketPtr.next = curr;
+          gteBucketPtr = gteBucketPtr.next;
+        }
+        
+        curr = curr.next;
+    }
+    
+    gteBucketPtr.next = null;
+    leBucketPtr.next = gteBucket.next;
+    return leBucket.next;
+};
+</pre>
