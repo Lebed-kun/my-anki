@@ -1,31 +1,56 @@
 <pre>
-    class Solution {
-        public double knightProbability(int N, int K, int sr, int sc) {
-            double[][] dp = new double[N][N];
-            int[] dr = new int[]{2, 2, 1, 1, -1, -1, -2, -2};
-            int[] dc = new int[]{1, -1, 2, -2, 2, -2, 1, -1};
-    
-            dp[sr][sc] = 1;
-            for (; K > 0; K--) {
-                double[][] dp2 = new double[N][N];
-                for (int r = 0; r < N; r++) {
-                    for (int c = 0; c < N; c++) {
-                        for (int k = 0; k < 8; k++) {
-                            int cr = r + dr[k];
-                            int cc = c + dc[k];
-                            if (0 <= cr && cr < N && 0 <= cc && cc < N) {
-                                dp2[cr][cc] += dp[r][c] / 8.0;
-                            }
+    /**
+    * @param {number} n
+    * @param {number} k
+    * @param {number} row
+    * @param {number} column
+    * @return {number}
+    */
+    var knightProbability = function(n, k, row, column) {
+        const xMoves = [1, -1, 2, -2, 2, -2, 1, -1];
+        const yMoves = [2, 2, 1, 1, -1, -1, -2, -2];
+        
+        let dp = [];
+        for (let x = 0; x < n; x++) {
+            dp.push([]);
+            for (let y = 0; y < n; y++) {
+                dp[x].push(0); 
+            }
+        }
+        dp[row][column] = 1;
+        
+        for (; k > 0; k--) {
+            const dp2 = [];
+            for (let x = 0; x < n; x++) {
+                dp2.push([]);
+                for (let y = 0; y < n; y++) {
+                    dp2[x].push(0); 
+                }
+            }
+            
+            for (let r = 0; r < n; r++) {
+                for (let c = 0; c < n; c++) {
+                    for (let j = 0; j < 8; j++) {
+                        const cr = r + yMoves[j];
+                        const cc = c + xMoves[j];
+                        
+                        if ((0 <= cr) && (cr < n) && (0 <= cc) && (cc < n)) {
+                            dp2[cr][cc] += dp[r][c] / 8; 
                         }
                     }
                 }
-                dp = dp2;
             }
-            double ans = 0.0;
-            for (double[] row: dp) {
-                for (double x: row) ans += x;
-            }
-            return ans;
+            
+            dp = dp2;
         }
-    }
+        
+        let result = 0;
+        for (let i = 0; i < dp.length; i++) {
+            for (let j = 0; j < dp[i].length; j++) {
+                result += dp[i][j];
+            }
+        }
+        
+        return result;
+    };
 </pre>
