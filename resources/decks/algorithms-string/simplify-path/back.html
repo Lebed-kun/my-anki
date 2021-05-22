@@ -1,0 +1,22 @@
+<pre>
+    /**
+ * @param {string} path
+ * @return {string}
+ */
+var simplifyPath = function(path) {
+    const rawParts = path.split("/");
+    const parts = [];
+    
+    for (let i = 0; i < rawParts.length; i++) {
+        if (rawParts[i] === "." || !rawParts[i].length) continue;
+        if (rawParts[i] === "..") {
+            if (parts.length > 0) parts.pop();
+            continue;
+        } 
+        
+        parts.push(rawParts[i]);
+    }
+    
+    return "/" + parts.join("/");
+};
+</pre>
