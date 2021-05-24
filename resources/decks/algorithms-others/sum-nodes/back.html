@@ -1,0 +1,56 @@
+<pre>
+    /**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var convertBST = function(root) {
+    if (root === null) return null;
+    
+    // Walk through tree with DFS
+    const map = {};
+    const stack = [root];
+    while (stack.length > 0) {
+        const node = stack.pop();
+        map[node.val] = {
+            node: node,
+            sum: 0
+        };
+        
+        if (node.left) {
+            stack.push(node.left);
+        }
+        
+        if (node.right) {
+            stack.push(node.right);
+        }
+    }
+    
+    // Calculate sum for each node
+    for (let nodeVal in map) {
+        let sum = +nodeVal;
+        
+        for (let nodeVal2 in map) {
+            if (+nodeVal2 > +nodeVal) {
+                sum += +nodeVal2;
+            }
+        }
+        
+        map[nodeVal].sum = sum;
+    }
+    
+    // Modify original tree
+    for (let nodeVal in map) {
+        map[nodeVal].node.val = map[nodeVal].sum;
+    }
+    
+    return root;
+};
+</pre>
