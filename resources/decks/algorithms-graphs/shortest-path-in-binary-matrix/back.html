@@ -1,0 +1,51 @@
+<pre>
+    /**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var shortestPathBinaryMatrix = function(grid) {
+    if (grid[0][0] !== 0) return -1;
+    
+    let result = 0;
+    const rowQueue = [0];
+    const colQueue = [0];
+    const pathQueue = [1];
+    let queuePtr = 0;
+    
+    const rowDirs = [-1, -1, 0, 1, 1, 1, 0, -1];
+    const colDirs = [0, 1, 1, 1, 0, -1, -1, -1];
+    while (queuePtr < rowQueue.length && queuePtr < colQueue.length) {
+        const row = rowQueue[queuePtr];
+        const col = colQueue[queuePtr];
+        const path = pathQueue[queuePtr++];
+        
+        // Check if node is unvisited before
+        if (grid[row][col] !== -1) {
+            if (row === (grid.length - 1) && col === (grid.length - 1)) {
+                return path;
+            }
+            
+            grid[row][col] = -1;
+            
+            for (let k = 0; k < 8; k++) {
+                const newRow = row + rowDirs[k];
+                const newCol = col + colDirs[k];
+                
+                if (
+                    (0 <= newRow) && 
+                    (newRow < grid.length) && 
+                    (0 <= newCol) && 
+                    (newCol < grid.length) &&
+                    (grid[newRow][newCol] === 0)
+                ) {
+                    rowQueue.push(newRow);
+                    colQueue.push(newCol);
+                    pathQueue.push(path + 1);
+                }
+            }
+        }
+    }
+    
+    return -1;
+};
+</pre>
