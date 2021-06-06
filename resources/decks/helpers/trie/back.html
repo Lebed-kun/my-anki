@@ -1,0 +1,58 @@
+<pre>
+    interface TrieNode&lt;E, V&gt; {
+        children: Array&lt;TrieNode&lt;E, V&gt; | null&gt;;
+        values: V[];
+      }
+      
+      type OffsetRel&lt;E&gt; = (curr: E, start: E) =&gt; number;
+      
+      export class Trie&lt;E, T extends Iterable&lt;E&gt;, V&gt; {
+        private root: TrieNode&lt;E, V&gt;;
+        private zeroChar: E;
+        private alphabetSize: number;
+        private offset: OffsetRel&lt;E&gt;;
+      
+        constructor(zeroChar: E, alphabetSize: number, offset: OffsetRel&lt;E&gt;) {
+          this.root = this.createNode(alphabetSize);
+          this.zeroChar = zeroChar;
+          this.alphabetSize = alphabetSize;
+          this.offset = offset;
+        }
+      
+        private createNode(alphabetSize: number): TrieNode&lt;E, V&gt; {
+          const node: TrieNode&lt;E, V&gt; = {
+            children: (new Array(alphabetSize)).fill(null),
+            values: [],
+          };
+      
+          return node;
+        }
+      
+        public insert(key: T, value: V) {
+          let node: TrieNode&lt;E, V&gt; = this.root;
+          node.values.push(value);
+      
+          for (let el of key) {
+            const offset = this.offset(el, this.zeroChar);
+      
+            if (!node.children[offset]) {
+              node.children[offset] = this.createNode(this.alphabetSize);
+            }
+      
+            node = node.children[offset]!;
+            node.values.push(value);
+          }
+        }
+      
+        public find(key: T): V[] | undefined {
+          let node = this.root;
+          for (let el of key) {
+            const offset = this.offset(el, this.zeroChar);
+            if (!node.children[offset]) return;
+            node = node.children[offset]!;
+          }
+      
+          return node.values;
+        }
+      }
+</pre>

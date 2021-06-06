@@ -1,0 +1,154 @@
+<pre>
+    interface Entry&lt;K, T&gt; {
+        key: K;
+        val: T;
+      }
+      
+      export class BinaryHeap&lt;K, T&gt; {
+        private cmp: (x: K, y: K) =&gt; number;
+        private store: Array&lt;Entry&lt;K, T&gt;&gt;;
+      
+        constructor(cmp: (x: K, y: K) =&gt; number) {
+          this.cmp = cmp;
+          this.store = [];
+        }
+      
+        private inBounds(ptr: number): boolean {
+          return (0 &lt;= ptr) && (ptr &lt; this.store.length);
+        }
+      
+        private swapNodes(ptr1: number, ptr2: number) {
+          let temp = this.store[ptr1];
+          this.store[ptr1] = this.store[ptr2];
+          this.store[ptr2] = temp;
+        }
+      
+        private parent(ptr: number): number {
+          return ptr === 0 ? -1 : (ptr - 1) &gt;&gt;&gt; 1;
+        }
+      
+        private left(ptr: number): number {
+          return (ptr &lt;&lt; 1) + 1;
+        }
+      
+        private right(ptr: number): number {
+          return (ptr &lt;&lt; 1) + 2;
+        }
+      
+        private siftUp(ptr: number) {
+          let parent = this.parent(ptr);
+      
+          while (ptr &gt;= 0 && parent &gt;= 0 && this.cmp(
+            this.store[ptr].key,
+            this.store[parent].key
+          ) &lt; 0) {
+            this.swapNodes(ptr, parent);
+            ptr = parent;
+            parent = this.parent(ptr);
+          }
+        }
+      
+        private siftDown(ptr: number) {
+          let left = this.left(ptr);
+          let right = this.right(ptr);
+      
+          while (
+            ptr &lt; this.store.length && (
+              (
+                left &lt; this.store.length && this.cmp(
+                  this.store[ptr].key,
+                  this.store[left].key
+                ) &gt; 0
+              ) || (
+                right &lt; this.store.length && this.cmp(
+                  this.store[ptr].key,
+                  this.store[right].key
+                ) &gt; 0
+              )
+            )
+          ) {
+            let swapped: number;
+            if (left &gt;= this.store.length) {
+              swapped = right;
+            } else if (right &gt;= this.store.length) {
+              swapped = left;
+            } else {
+              swapped = this.cmp(
+                this.store[right].key,
+                this.store[left].key,
+              ) &lt; 0 ? right : left;
+            }
+      
+            this.swapNodes(ptr, swapped);
+            ptr = swapped;
+            left = this.left(ptr);
+            right = this.right(ptr);
+          }
+        }
+      
+        public peekTop(): T | undefined {
+          return this.store[0]?.val;
+        }
+      
+        public insert(k: K, v: T) {
+          this.store.push({
+            key: k,
+            val: v
+          });
+      
+          this.siftUp(this.store.length - 1);
+        }
+      
+        private extract(ptr: number): T | undefined {
+          if (ptr &gt;= this.store.length) return;
+      
+          this.swapNodes(ptr, this.store.length - 1);
+          const res = this.store.pop()!;
+          
+          if (
+            ptr &lt; this.store.length && 
+            this.cmp(
+              this.store[ptr].key, res.key
+            ) &lt; 0
+          ) {
+            this.siftUp(ptr);
+          } else {
+            this.siftDown(ptr);
+          }
+      
+          return res.val;
+        }
+      
+        public extractTop(): T | undefined {
+          return this.extract(0);
+        }
+      
+        private findPtr(k: K): number {
+          for (let i = 0; i &lt; this.store.length; i++) {
+            if (this.store[i].key === k) {
+              return i;
+            }
+          }
+      
+          return -1;
+        }
+      
+        public remove(k: K): T | undefined {
+          const ptr = this.findPtr(k);
+          if (ptr &lt; 0) {
+            return undefined;
+          } else {
+            return this.extract(ptr);
+          }
+        }
+      
+        public find(k: K): T | undefined {
+          const ptr = this.findPtr(k);
+          if (ptr &lt; 0) {
+            return undefined;
+          } else {
+            return this.store[ptr].val;
+          }
+        }
+      }
+</pre>
