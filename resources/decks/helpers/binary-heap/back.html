@@ -151,4 +151,63 @@
           }
         }
       }
+
+      const binaryHeapExample = () => {
+        const heap = new BinaryHeap(
+          (a: number, b: number) => a - b
+        );
+      
+        heap.insert(3, 30);
+        assert(
+          heap.peekTop() === 30,
+          "192: Should be equal to 30"
+        );
+      
+        heap.insert(6, 20);
+        assert(
+          heap.peekTop() === 30,
+          "197: Should be equal to 30"
+        );
+      
+        heap.insert(1, 15);
+        assert(
+          heap.peekTop() === 15,
+          "203: Should be equal to 15"
+        );
+      
+        heap.insert(4, 40);
+        assert(
+          heap.peekTop() === 15,
+          "209: Should be equal to 15"
+        );
+      
+        assert(
+          heap.find(4) === 40,
+          "214: Should be equal to 40"
+        );
+      
+        console.log(heap.extractTop()); // 15
+        console.log(heap.peekTop()); // 30
+      
+        console.log(heap.extractTop()); // 30
+        console.log(heap.peekTop()); // 40
+      
+        console.log(heap.extractTop()); // 40
+        console.log(heap.peekTop()); // 20
+      
+        console.log(heap.extractTop()); // 20
+        console.log(heap.peekTop()); // undefined
+      
+        heap.insert(10, 200);
+        heap.insert(30, 150);
+        heap.insert(8, 299);
+        heap.insert(15, 300);
+        console.log(heap.remove(15)); // 300
+        console.log(heap.peekTop()); // 299
+        console.log(heap.remove(8)); // 299
+        console.log(heap.peekTop()); // 200
+        console.log(heap.remove(32)); // undefined
+        console.log(heap.remove(30)); // 150
+        console.log(heap.peekTop()); // 200
+      }
 </pre>

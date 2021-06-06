@@ -55,4 +55,60 @@
           return node.values;
         }
       }
+
+      const trieExample = () => {
+        const trie = new Trie&lt;string, string, string&gt;(
+          "a",
+          28,
+          (curr: string, start: string) => {
+            if (curr === " ") {
+              return 26;
+            } else if (curr === "-") {
+              return 27;
+            }
+       
+            return curr.toLowerCase().charCodeAt(0) - start.toLowerCase().charCodeAt(0);
+          }
+        );
+      
+        trie.insert(
+          "Wikipedia is a quasi-free encyclopedia",
+          "https://en.wikipedia.org"
+        );
+      
+        trie.insert(
+          "Wikipedia docom",
+          "https://example.com"
+        );
+      
+        trie.insert(
+          "Wikipedia is a xxx",
+          "https://xxx.xxx"
+        );
+      
+        console.log(
+          "#1 => ",
+          trie.find("wikipedia")
+        ); // ["https://en.wikipedia.org", "https://example.com". "https://xxx.xxx"]
+      
+        console.log(
+          "#2 => ",
+          trie.find("wikipedia doc")
+        ); // ["https://example.com"]
+      
+        console.log(
+          "#3 => ",
+          trie.find("wikipedia is a masonic fund")
+        ); // undefined
+      
+        console.log(
+          "#4 => ",
+          trie.find("wikipedia is a x")
+        ); // ["https://xxx.xxx"]
+      
+        console.log(
+          "#5 => ",
+          trie.find("wikipedia is a")
+        ); // ["https://en.wikipedia.org". "https://xxx.xxx"]
+      }
 </pre>
