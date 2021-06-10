@@ -7,7 +7,9 @@ export class DecksFilter implements Filter {
     }
 
     public async execute(_body: any, context: ServiceContext) {
-        const marshalledNames = await JSON.stringify(context.memConfig.deckNames);
+        const decks = await context.db.collection("decks")
+            .find({})
+            .toArray();
 
         return {
             status: Number(process.env.STATUS_OK!),
@@ -15,7 +17,7 @@ export class DecksFilter implements Filter {
                 "Content-Type": "application/json",
                 ...corsHeaders
             },
-            body: marshalledNames
+            body: JSON.stringify(decks)
         }
     }
 }

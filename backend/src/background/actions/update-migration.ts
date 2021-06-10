@@ -65,6 +65,7 @@ export class UpdateMigrationAction implements Action {
                             if (err !== null) {
                                 rej(err);
                             } else {
+                                // @ts-ignore
                                 res();
                             }
                         }

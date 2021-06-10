@@ -2,13 +2,15 @@ import { AnkiConfig, AnkiCardRef } from "./types";
 import fs from "fs";
 import path from "path";
 import { Background } from "./background";
+import { MongoClient, Db } from "mongodb";
 
 export class ServiceContext {
     private _resourcesPath?: string;
-    private _memConfig?: AnkiConfig;
+    // private _memConfig?: AnkiConfig;
     private _fallbackPage?: string;
     private _migrationPath?: string;
     private _background?: Background;
+    private _db?: Db;
 
     public get background() {
         if (typeof this._background !== "undefined") {
@@ -26,6 +28,7 @@ export class ServiceContext {
         }
     }
 
+    /*
     public get memConfig() {
         if (typeof this._memConfig !== "undefined") {
             return this._memConfig
@@ -33,6 +36,7 @@ export class ServiceContext {
             throw "Config not initialized!"
         }
     }
+    */
 
     public get fallbackPage() {
         if (typeof this._fallbackPage !== "undefined") {
@@ -132,6 +136,7 @@ export class ServiceContext {
         return decks;
     }
 
+    /*
     private setupConfig(resourcesPath: string): AnkiConfig {
         const rawContent = fs.readFileSync(
             path.join(
@@ -151,6 +156,7 @@ export class ServiceContext {
             decks
         };
     }
+    */
 
     private setupFallbackPage(resourcesPath: string): string {
         const rawContent = fs.readFileSync(
@@ -164,7 +170,20 @@ export class ServiceContext {
         return rawContent.toString("utf-8");
     }
 
-    public init() {
+    private async setupDb() {
+        const client = await MongoClient.connect(process.env.MONGODB_URL!);
+        this._db = client.db(process.env.DB_NAME!);
+    }
+
+    public get db(): Db {
+        if (!this._db) {
+            throw "Db not initialized";
+        }
+
+        return this._db;
+    }
+
+    public async init() {
         const resourcesPath = path.join(
             __dirname,
             "..",
@@ -179,13 +198,14 @@ export class ServiceContext {
             process.env.PATH_MIGRATION!
         );
 
-        const memConfig = this.setupConfig(resourcesPath);
+        // const memConfig = this.setupConfig(resourcesPath);
         const fallbackPage = this.setupFallbackPage(resourcesPath);
 
         this._resourcesPath = resourcesPath;
-        this._memConfig = memConfig;
+        // this._memConfig = memConfig;
         this._fallbackPage = fallbackPage;
         this._migrationPath = migrationPath;
         this._background = new Background();
+        await this.setupDb();
     }
 }

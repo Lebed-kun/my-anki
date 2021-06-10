@@ -3,6 +3,10 @@ import { corsHeaders } from "./cors";
 import { supermemo, SuperMemoGradeDict } from "../utils/supermemo";
 import { TaskType } from "../background/types";
 
+interface AnkiStateDict { 
+    [name: string]: AnkiCardRef 
+}
+
 export class UpdateScoresFilter implements Filter {
     public validate(body: any) {
         return (typeof body === "object") &&
@@ -10,62 +14,61 @@ export class UpdateScoresFilter implements Filter {
             (typeof body.cards === "object");
     }
 
-    private updateDeck(
-        deck: Map<string, AnkiCardRef>,
-        deckCardGrades: SuperMemoGradeDict
+    private prepareTransactions(
+        body: any, 
+        ankiState: AnkiStateDict,
+        now: Date
     ) {
-        for (let cardName in deckCardGrades) {
-            const cardData = deck.get(cardName);
+        const transactions = [];
+        const nowStr = now.toISOString();
 
-            if (cardData) {
-                const nextAnkiData = supermemo(
-                    {
-                        interval: cardData.interval,
-                        repetition: cardData.repetition,
-                        efactor: cardData.efactor
+        for (let cardName in body.cards) {
+            const cardData = ankiState[cardName];
+            const nextAnkiState = supermemo(
+                {
+                    interval: cardData.interval,
+                    repetition: cardData.repetition,
+                    efactor: cardData.efactor
+                },
+                body.cards[cardName]
+            );
+
+            transactions.push({
+                updateOne: {
+                    filter: {
+                        uid: cardName,
+                        deckUid: body.deck_name
                     },
-                    deckCardGrades[cardName]
-                );
-
-                deck.set(
-                    cardName,
-                    {
-                        ...nextAnkiData,
-                        passedAt: new Date()
+                    update: {
+                        $set: {
+                            ...nextAnkiState,
+                            passedAt: nowStr
+                        }
                     }
-                )
-            }
+                }
+            })
         }
+
+        return transactions;
     }
 
     public async execute(body: any, context: ServiceContext) {
-        const deck = context.memConfig.decks.get(body.deck_name);
-
-        if (typeof deck === "undefined") {
-            return {
-                status: Number(process.env.STATUS_NOT_FOUND!),
-                headers: {
-                    "Content-Type": "text/plain",
-                    ...corsHeaders
-                },
-                body: `Deck named "${body.deck_name}" was not found!`
-            }
-        }
-        
-        this.updateDeck(
-            deck,
-            body.cards,
-        );
-
-        context.background.dispatch(
-            {
-                type: TaskType.UpdateMigration,
-                payload: {
-                    migrationPath: context.migrationPath,
-                    ankiConfig: context.memConfig
+        const ankiStates: AnkiStateDict = {};
+        await context.db.collection("cards")
+            .find({
+                deckUid: body.deck_name
+            })
+            .forEach(card => {
+                ankiStates[card.uid] = {
+                    interval: card.interval,
+                    repetition: card.repetition,
+                    efactor: card.efactor,
+                    passedAt: card.passedAt
                 }
-            }
-        );
+            });
+
+        const transactions = this.prepareTransactions(body, ankiStates, new Date());
+        await context.db.collection("cards").bulkWrite(transactions);
 
         return {
             status: Number(process.env.STATUS_OK!),

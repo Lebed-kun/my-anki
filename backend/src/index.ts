@@ -2,52 +2,57 @@ import http from "http";
 import { Router } from "./filters";
 import { Service } from "./service";
 import { ServiceContext } from "./service-context";
+import { MongoClient } from "mongodb";
 
-const serviceContext = new ServiceContext();
-serviceContext.init();
+const main = async () => {
+    const serviceContext = new ServiceContext();
+    await serviceContext.init();
 
-const service = new Service(Router, serviceContext);
+    const service = new Service(Router, serviceContext);
 
-const server = http.createServer(
-    (req, res) => {
-        const url = req.url ?? "";
-        const method = req.method ?? "GET";
-        const [, action] = url.split("/");
-        const contentType = req.headers["content-type"] ?? "text/html";
-        
-        const rawRequestBody: Uint8Array[] = [];
+    const server = http.createServer(
+        (req, res) => {
+            const url = req.url ?? "";
+            const method = req.method ?? "GET";
+            const [, action] = url.split("/");
+            const contentType = req.headers["content-type"] ?? "text/html";
 
-        req.on("error", (err) => {
-            console.error(err);
-        }).on("data", (chunk) => {
-            rawRequestBody.push(chunk);
-        }).on("end", () => {
-            const requestBody = Buffer.concat(rawRequestBody).toString();
+            const rawRequestBody: Uint8Array[] = [];
 
-            res.on("error", (err) => {
+            req.on("error", (err) => {
                 console.error(err);
-            });
+            }).on("data", (chunk) => {
+                rawRequestBody.push(chunk);
+            }).on("end", () => {
+                const requestBody = Buffer.concat(rawRequestBody).toString();
 
-            service.exec(
-                method,
-                action,
-                contentType,
-                requestBody
-            ).then(({ status, headers, body }) => {
-                res.writeHead(status, headers);
-                res.write(body);
-                res.end();
-            }).catch(err => {
-                console.error(err);
-                res.end();
-            });
-        })
-    }
-);
+                res.on("error", (err) => {
+                    console.error(err);
+                });
 
-server.listen(
-    process.env.PORT, 
-    () => {
-        console.log(`Listening on port ${process.env.PORT}`);
-    }
-);
+                service.exec(
+                    method,
+                    action,
+                    contentType,
+                    requestBody
+                ).then(({ status, headers, body }) => {
+                    res.writeHead(status, headers);
+                    res.write(body);
+                    res.end();
+                }).catch(err => {
+                    console.error(err);
+                    res.end();
+                });
+            })
+        }
+    );
+
+    server.listen(
+        process.env.PORT,
+        () => {
+            console.log(`Listening on port ${process.env.PORT}`);
+        }
+    );
+}
+
+main().catch(e => console.error(e));
