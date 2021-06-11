@@ -2,8 +2,9 @@ import React from "react";
 import { ScreenTitle } from "../common";
 import { BACKEND_URL } from "../../constants";
 import DeckButton from "./deck-button";
+import { Deck } from "../../types";
 
-const fetchDecks = async () => {
+const fetchDecks = async (): Promise<Deck[]> => {
     const res = await fetch(
         `${BACKEND_URL}/decks`,
         {
@@ -15,13 +16,16 @@ const fetchDecks = async () => {
     );
 
     const data = await res.json();
-    
+    if (!Array.isArray(data)) {
+        throw Error("Invalid response");
+    }
+
     return data;
 };
 
 const ChooseDeck: React.FC = () => {
     const [pending, setPending] = React.useState(false);
-    const [deckNames, setDeckNames] = React.useState<string[]>();
+    const [decks, setDecks] = React.useState<Deck[]>();
     const [error, setError] = React.useState<Error>();
 
     React.useEffect(
@@ -30,7 +34,7 @@ const ChooseDeck: React.FC = () => {
 
             fetchDecks().then(
                 data => {
-                    setDeckNames(data);    
+                    setDecks(data);    
                 }
             ).catch(
                 err => {
@@ -52,17 +56,17 @@ const ChooseDeck: React.FC = () => {
                     <ScreenTitle>
                         Loading decks...
                     </ScreenTitle>
-                ) : deckNames ? (
+                ) : decks ? (
                     <>
                         <ScreenTitle>
                             Choose deck
                         </ScreenTitle>
 
-                        {deckNames.map(
-                            name => (
+                        {decks.map(
+                            deck => (
                                 <DeckButton 
-                                    deckName={name}
-                                    title={name}
+                                    deckName={deck.uid}
+                                    title={deck.title}
                                 />
                             )
                         )}

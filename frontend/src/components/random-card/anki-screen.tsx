@@ -5,9 +5,11 @@ import Answer from "./answer";
 import SelectGrade, { Grade, GradeDict } from "../select-grade";
 import { updateScores } from "./api";
 import { useHistory } from "react-router-dom";
+import ScreenTitle from "../common/screen-title";
 
 interface Props {
     cardName: string;
+    cardTitle: string;
     deckName: string;
     front: string;
     back: string;
@@ -27,7 +29,9 @@ const AnkiScreen: React.FC<Props> = (props) => {
 
     React.useEffect(
         () => {
-            grades.current[props.cardName] = grade;
+            if (props.cardName) {
+                grades.current[props.cardName] = grade;
+            }
         },
         [grade, props.cardName]
     );
@@ -56,6 +60,10 @@ const AnkiScreen: React.FC<Props> = (props) => {
 
     return (
         <div>
+            <ScreenTitle>
+                {props.cardTitle}
+            </ScreenTitle>
+
             <div className={styles.row}>
                 <Card content={props.front} visible={true} />
 

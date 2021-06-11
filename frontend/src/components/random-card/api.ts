@@ -1,7 +1,8 @@
 import { BACKEND_URL } from "../../constants";
 import { GradeDict } from "../select-grade";
+import { CardMeta } from "../../types";
 
-export const fetchCardRefs = async (deckName: string) => {
+export const fetchCardRefs = async (deckName: string): Promise<CardMeta[]> => {
     const res = await fetch(
         `${BACKEND_URL}/deck-cards`,
         {
@@ -16,7 +17,12 @@ export const fetchCardRefs = async (deckName: string) => {
         }
     );
 
-    return res.json();
+    const json = await res.json();
+    if (!Array.isArray(json)) {
+        throw Error("Invalid response");
+    }
+
+    return json;
 }
 
 export const fetchCardSides = async (deckName: string, cardName: string) => {

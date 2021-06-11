@@ -20,6 +20,7 @@ const RandomCard: React.FC = () => {
             <Fence visible={!!card.front && !!card.back}>
                 <AnkiScreen
                     cardName={card.cardName ?? ""}
+                    cardTitle={card.cardTitle ?? ""}
                     deckName={card.deckName ?? ""} 
                     front={card.front ?? ""}
                     back={card.back ?? ""}

@@ -3,20 +3,11 @@ import { RandStack } from "../../utils";
 import { useForceUpdate } from "../../hooks";
 import { useRouteMatch, useHistory } from "react-router-dom";
 import { fetchCardRefs, fetchCardSides } from "./api";
-
-interface Card {
-    front: string;
-    back: string;
-}
-
-interface CardInfo {
-    name: string;
-    content: Card;
-}
+import { CardMeta, Card } from "../../types";
 
 export const useCardsData = (deckName?: string) => {
     const forceUpdate = useForceUpdate();
-    const [cardRefs, setCardRefs] = useState<RandStack<string>>();
+    const [cardRefs, setCardRefs] = useState<RandStack<CardMeta>>();
     const [initRefsCount, setInitRefsCount] = useState<number>();
 
     useEffect(
@@ -24,7 +15,7 @@ export const useCardsData = (deckName?: string) => {
             if (deckName) {
                 fetchCardRefs(deckName).then(
                     cardRefs => {
-                        const stack = new RandStack<string>(cardRefs);
+                        const stack = new RandStack(cardRefs);
                         setCardRefs(stack);
                         setInitRefsCount(stack.length);
                     }
@@ -35,21 +26,23 @@ export const useCardsData = (deckName?: string) => {
     );
 
     const takeCard = useCallback(
-        async (): Promise<CardInfo | undefined> => {
+        async (): Promise<Card | undefined> => {
             if (
                 (typeof cardRefs !== "undefined") &&
                 (typeof deckName !== "undefined")
             ) {
-                const cardName = cardRefs.pop();
+                const card = cardRefs.pop();
 
-                if (typeof cardName !== "undefined") {
-                    const cardSides = await fetchCardSides(deckName, cardName);
+                if (typeof card !== "undefined") {
+                    const cardSides = await fetchCardSides(deckName, card.uid);
                     forceUpdate();
 
                     return { 
-                        name: cardName,
-                        content: cardSides
-                     }
+                        uid: card.uid,
+                        title: card.title,
+                        front: cardSides.front,
+                        back: cardSides.back,
+                    }
                 }
             }
         },
@@ -79,6 +72,7 @@ export const useCard = () => {
     const [front, setFront] = useState<string>();
     const [back, setBack] = useState<string>();
     const [cardName, setCardName] = useState<string>();
+    const [cardTitle, setCardTitle] = useState<string>();
     const [error, setError] = useState<Error>();
 
     const fetchCard = useCallback(
@@ -94,9 +88,10 @@ export const useCard = () => {
                     const info = await takeCard();
     
                     if (typeof info !== "undefined") {
-                        setCardName(info.name);
-                        setFront(info.content.front);
-                        setBack(info.content.back);
+                        setCardName(info.uid);
+                        setCardTitle(info.title);
+                        setFront(info.front);
+                        setBack(info.back);
                     }
                 } catch (err) {
                     console.error(err);
@@ -126,6 +121,7 @@ export const useCard = () => {
 
         pending,
         cardName,
+        cardTitle,
         deckName,
         front,
         back,
