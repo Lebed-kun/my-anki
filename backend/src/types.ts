@@ -29,7 +29,7 @@ export type Routes = Map<
 >;
 
 interface Dict {
-    [k: string]: string;
+    [k: string]: string | string[] | undefined;
 }
 
 export interface Request {
@@ -47,12 +47,16 @@ export interface Response {
     body: any;
 }
 
-export interface HookContext<T> {
+export interface BasicState {
+    [k: string]: any;
+}
+
+export interface HookContext<T extends BasicState> {
     request: Request;
     response: Response;
     state: T;
 }
 
-export type HookHandler<T> = (ctx: HookContext<T>) => Promise<any>;
+export type HookHandler<T extends BasicState> = (ctx: HookContext<T>) => Promise<any>;
 
 export { ServiceContext };

@@ -21,6 +21,73 @@ enum QueryRecognizerState {
     IsReadingValue,
 }
 
+function createQueryRecognizer() {
+    let queryDict: { [q: string]: string } = {};
+    let buffKey = "";
+    let buffVal = "";
+
+    const commitQueryParam = (_1: string, _2: number) => {
+        queryDict[buffKey] = buffVal || "1";
+        buffKey = "";
+        buffVal = "";
+    };
+
+    const queryFsm = new Fsm(
+        QueryRecognizerState.IsReadingKey,
+        {
+            [QueryRecognizerState.IsReadingKey]: [
+                {
+                    condition: (s: string, i: number) => i < s.length && s[i] !== "=",
+                    nextState: QueryRecognizerState.IsReadingKey,
+                    effect: (s: string, i: number) => {
+                        buffKey += s[i];
+                    }
+                },
+                {
+                    condition: (s: string, i: number) => s[i] === "=",
+                    nextState: QueryRecognizerState.IsReadingValue,
+                },
+                {
+                    condition: (s: string, i: number) => i === s.length,
+                    nextState: QueryRecognizerState.IsReadingKey,
+                    effect: commitQueryParam
+                }
+            ],
+            [QueryRecognizerState.IsReadingValue]: [
+                {
+                    condition: (s: string, i: number) => i < s.length && s[i] !== "&",
+                    nextState: QueryRecognizerState.IsReadingValue,
+                    effect: (s: string, i: number) => {
+                        buffVal += s[i];
+                    }
+                },
+                {
+                    condition: (s: string, i: number) => s[i] === "&" || i === s.length,
+                    nextState: QueryRecognizerState.IsReadingKey,
+                    effect: commitQueryParam,
+                }
+            ]
+
+        }
+    );
+
+    const clearQuery = () => {
+        queryDict = {};
+    };
+
+    const getQuery = () => {
+        return queryDict;
+    };
+
+    return {
+        fsm: queryFsm,
+        clear: clearQuery,
+        getValues: getQuery
+    };
+};
+
+const queryRecognizer = createQueryRecognizer();
+
 export class Router<T> {
     private _prefix: string;
     private _paths: PathsDict<T>;
@@ -29,7 +96,7 @@ export class Router<T> {
     constructor(prefix: string = "") {
         this._prefix = prefix;
         this._paths = {};
-        this._queryRecognizer = this.createQueryRecognizer();
+        this._queryRecognizer = queryRecognizer;
     }
 
     private createPathRecognizer(path: string) {
@@ -99,71 +166,6 @@ export class Router<T> {
         }
     }
 
-    private createQueryRecognizer() {
-        let queryDict: { [q: string]: string } = {};
-        let buffKey = "";
-        let buffVal = "";
-
-        const commitQueryParam = (_1: string, _2: number) => {
-            queryDict[buffKey] = buffVal || "1";
-            buffKey = "";
-            buffVal = "";
-        };
-
-        const queryFsm = new Fsm(
-            QueryRecognizerState.IsReadingKey,
-            {
-                [QueryRecognizerState.IsReadingKey]: [
-                    {
-                        condition: (s: string, i: number) => i < s.length && s[i] !== "=",
-                        nextState: QueryRecognizerState.IsReadingKey,
-                        effect: (s: string, i: number) => {
-                            buffKey += s[i];
-                        }
-                    },
-                    {
-                        condition: (s: string, i: number) => s[i] === "=",
-                        nextState: QueryRecognizerState.IsReadingValue,
-                    },
-                    {
-                        condition: (s: string, i: number) => i === s.length,
-                        nextState: QueryRecognizerState.IsReadingKey,
-                        effect: commitQueryParam
-                    }
-                ],
-                [QueryRecognizerState.IsReadingValue]: [
-                    {
-                        condition: (s: string, i: number) => i < s.length && s[i] !== "&",
-                        nextState: QueryRecognizerState.IsReadingValue,
-                        effect: (s: string, i: number) => {
-                            buffVal += s[i];
-                        }
-                    },
-                    {
-                        condition: (s: string, i: number) => s[i] === "&" || i === s.length,
-                        nextState: QueryRecognizerState.IsReadingKey,
-                        effect: commitQueryParam,
-                    }
-                ]
-
-            }
-        );
-
-        const clearQuery = () => {
-            queryDict = {};
-        };
-
-        const getQuery = () => {
-            return queryDict;
-        };
-
-        return {
-            fsm: queryFsm,
-            clear: clearQuery,
-            getValues: getQuery
-        };
-    }
-
     public hookHandler(method: string, path: string, handler: HookHandler<T>) {
         if (!this._paths[method]) {
             this._paths[method] = [];
@@ -225,9 +227,7 @@ export class Router<T> {
                 }
             }
 
-            if (!handler) {
-                throw `Not found ${path}`;
-            } else {
+            if (handler) {
                 await handler(ctx);
             }
         }
