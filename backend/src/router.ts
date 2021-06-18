@@ -36,6 +36,7 @@ export class Router<T> {
         const pathFsm = new Fsm(0);
 
         let buffParam = "";
+        let state = 0;
         let isMakerReadingParam = false;
         let paramsDict: { [p: string]: string } = {};
         for (let i = 0; i < path.length; i++) {
@@ -43,10 +44,10 @@ export class Router<T> {
                 if (isMakerReadingParam) {
                     const param = buffParam;
                     pathFsm.addTransition(
-                        i,
+                        state,
                         {
                             condition: (s: string, j: number) => j < s.length && s[j] !== path[i],
-                            nextState: i,
+                            nextState: state,
                             effect: (s: string, j: number) => {
                                 if (!paramsDict[param]) {
                                     paramsDict[param] = "";
@@ -60,10 +61,10 @@ export class Router<T> {
                 }
 
                 pathFsm.addTransition(
-                    i,
+                    state,
                     {
                         condition: (s: string, j: number) => s[j] === path[i],
-                        nextState: i + 1,
+                        nextState: ++state,
                     }
                 );
 
@@ -74,10 +75,10 @@ export class Router<T> {
                 buffParam += path[i];
             } else {
                 pathFsm.addTransition(
-                    i,
+                    state,
                     {
                         condition: (s: string, j: number) => s[j] === path[i],
-                        nextState: i + 1
+                        nextState: ++state
                     }
                 )
             }
@@ -194,7 +195,6 @@ export class Router<T> {
             if (!paths) throw `Unknown method ${ctx.request.method}`;
 
             const [path, query] = ctx.request.url.split("?");
-            let begin = 0;
             let handler: HookHandler<T> | null = null;
             for (let info of paths) {
                 let failed = false;
@@ -202,12 +202,10 @@ export class Router<T> {
 
                 recognizer.fsm.proceed(
                     path,
-                    begin,
+                    0,
                     (_: string, i: number) => {
                         failed = true;
-                        begin = i;
                     },
-                    begin
                 );
 
                 if (!failed) {
