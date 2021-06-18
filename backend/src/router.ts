@@ -1,7 +1,14 @@
 import { HookHandler, HookContext } from "./types";
+import { Fsm, Transition } from "./utils/fsm";
+
+interface Recognizer {
+    fsm: Fsm;
+    clear: () => void;
+    getValues: () => { [k: string]: string };
+}
 
 interface PathInfo<T> {
-    pathParts: string[];
+    recognizer: Recognizer;
     handler: HookHandler<T>;
 }
 
@@ -9,13 +16,151 @@ interface PathsDict<T> {
     [method: string]: PathInfo<T>[];
 }
 
+enum QueryRecognizerState {
+    IsReadingKey,
+    IsReadingValue,
+}
+
 export class Router<T> {
     private _prefix: string;
     private _paths: PathsDict<T>;
+    private _queryRecognizer: Recognizer;
 
     constructor(prefix: string = "") {
         this._prefix = prefix;
         this._paths = {};
+        this._queryRecognizer = this.createQueryRecognizer();
+    }
+
+    private createPathRecognizer(path: string) {
+        const pathFsm = new Fsm(0);
+
+        let buffParam = "";
+        let isMakerReadingParam = false;
+        let paramsDict: { [p: string]: string } = {};
+        for (let i = 0; i < path.length; i++) {
+            if (path[i] === "/") {
+                if (isMakerReadingParam) {
+                    const param = buffParam;
+                    pathFsm.addTransition(
+                        i,
+                        {
+                            condition: (s: string, j: number) => j < s.length && s[j] !== path[i],
+                            nextState: i,
+                            effect: (s: string, j: number) => {
+                                if (!paramsDict[param]) {
+                                    paramsDict[param] = "";
+                                }
+
+                                paramsDict[param] += s[j];
+                            }
+                        }
+                    );
+                    buffParam = "";
+                }
+
+                pathFsm.addTransition(
+                    i,
+                    {
+                        condition: (s: string, j: number) => s[j] === path[i],
+                        nextState: i + 1,
+                    }
+                );
+
+                isMakerReadingParam = false;
+            } else if (path[i] === ":") {
+                isMakerReadingParam = true;
+            } else if (isMakerReadingParam) {
+                buffParam += path[i];
+            } else {
+                pathFsm.addTransition(
+                    i,
+                    {
+                        condition: (s: string, j: number) => s[j] === path[i],
+                        nextState: i + 1
+                    }
+                )
+            }
+        }
+
+        const clearPathParams = () => {
+            paramsDict = {};
+        };
+
+        const getPathParams = () => {
+            return paramsDict;
+        };
+
+        return {
+            fsm: pathFsm,
+            clear: clearPathParams,
+            getValues: getPathParams
+        }
+    }
+
+    private createQueryRecognizer() {
+        let queryDict: { [q: string]: string } = {};
+        let buffKey = "";
+        let buffVal = "";
+
+        const commitQueryParam = (_1: string, _2: number) => {
+            queryDict[buffKey] = buffVal || "1";
+            buffKey = "";
+            buffVal = "";
+        };
+
+        const queryFsm = new Fsm(
+            QueryRecognizerState.IsReadingKey,
+            {
+                [QueryRecognizerState.IsReadingKey]: [
+                    {
+                        condition: (s: string, i: number) => i < s.length && s[i] !== "=",
+                        nextState: QueryRecognizerState.IsReadingKey,
+                        effect: (s: string, i: number) => {
+                            buffKey += s[i];
+                        }
+                    },
+                    {
+                        condition: (s: string, i: number) => s[i] === "=",
+                        nextState: QueryRecognizerState.IsReadingValue,
+                    },
+                    {
+                        condition: (s: string, i: number) => i === s.length,
+                        nextState: QueryRecognizerState.IsReadingKey,
+                        effect: commitQueryParam
+                    }
+                ],
+                [QueryRecognizerState.IsReadingValue]: [
+                    {
+                        condition: (s: string, i: number) => i < s.length && s[i] !== "&",
+                        nextState: QueryRecognizerState.IsReadingValue,
+                        effect: (s: string, i: number) => {
+                            buffVal += s[i];
+                        }
+                    },
+                    {
+                        condition: (s: string, i: number) => s[i] === "&" || i === s.length,
+                        nextState: QueryRecognizerState.IsReadingKey,
+                        effect: commitQueryParam,
+                    }
+                ]
+
+            }
+        );
+
+        const clearQuery = () => {
+            queryDict = {};
+        };
+
+        const getQuery = () => {
+            return queryDict;
+        };
+
+        return {
+            fsm: queryFsm,
+            clear: clearQuery,
+            getValues: getQuery
+        };
     }
 
     public hookHandler(method: string, path: string, handler: HookHandler<T>) {
@@ -25,7 +170,7 @@ export class Router<T> {
 
         this._paths[method].push(
             {
-                pathParts: (this._prefix + path).split("/"),
+                recognizer: this.createPathRecognizer(this._prefix + path),
                 handler
             }
         );
@@ -45,56 +190,47 @@ export class Router<T> {
 
     public toHook(): HookHandler<T> {
         return async (ctx: HookContext<T>) => {
-            const routePaths: PathInfo<T>[] = this._paths[ctx.request.method];
-            if (!routePaths.length) return;
+            const paths = this._paths[ctx.request.method];
+            if (!paths) throw `Unknown method ${ctx.request.method}`;
 
             const [path, query] = ctx.request.url.split("?");
-            const reqPathParts = path.split("/");
-            let currentPath: PathInfo<T> | undefined = routePaths[0];
-            let pathPtr = 0;
-            let i = 0;
+            let begin = 0;
+            let handler: HookHandler<T> | null = null;
+            for (let info of paths) {
+                let failed = false;
+                const recognizer = info.recognizer;
 
-            const params: { [k: string]: string } = {};
-            for (let reqPart of reqPathParts) {
-                if (!currentPath) break;
+                recognizer.fsm.proceed(
+                    path,
+                    begin,
+                    (_: string, i: number) => {
+                        failed = true;
+                        begin = i;
+                    },
+                    begin
+                );
 
-                const routePart = currentPath.pathParts[i];
-                if (routePart[0] === ":") {
-                    params[routePart.slice(1)] = reqPart;
-                } else if (reqPart !== routePart) {
-                    currentPath = routePaths[++pathPtr];
-                    i--;
+                if (!failed) {
+                    ctx.request.params = recognizer.getValues();
+                    recognizer.clear();
+
+                    this._queryRecognizer.fsm.proceed(
+                        query,
+                        0,
+                        (_1: string, _2: number) => {}
+                    );
+                    ctx.request.query = this._queryRecognizer.getValues();
+                    this._queryRecognizer.clear();
+
+                    handler = info.handler;
+                    break;
                 }
-
-                i++;
             }
 
-            if (currentPath) {
-                ctx.request.params = params;
-
-                const queryParams: { [k: string]: string } = {};
-                let key = "";
-                let value = "";
-                let isReadingVal = false;
-                for (let j = 0; j < query.length + 1; j++) {
-                    if (j === query.length && !!key) {
-                        queryParams[key] = !value ? "1" : value;
-                    } else if (query[j] === "&" && !!key) {
-                        queryParams[key] = !value ? "1" : value;
-                        key = "";
-                        value = "";
-                        isReadingVal = false;
-                    } else if (query[j] === "=") {
-                        isReadingVal = true;
-                    } else if (isReadingVal) {
-                        value += query[j];
-                    } else {
-                        key += query[j];
-                    }
-                }
-
-                ctx.request.query = queryParams;
-                await currentPath.handler(ctx);
+            if (!handler) {
+                throw `Not found ${path}`;
+            } else {
+                await handler(ctx);
             }
         }
     }
