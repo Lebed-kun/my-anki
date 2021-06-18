@@ -1,7 +1,6 @@
 import { ServiceContext, Filter, AnkiCardRef } from "../types";
 import { corsHeaders } from "./cors";
 import { supermemo, SuperMemoGradeDict } from "../utils/supermemo";
-import { TaskType } from "../background/types";
 
 interface AnkiStateDict { 
     [name: string]: AnkiCardRef 

@@ -59,4 +59,8 @@ export interface HookContext<T extends BasicState> {
 
 export type HookHandler<T extends BasicState> = (ctx: HookContext<T>) => Promise<any>;
 
+export interface State {
+    
+}
+
 export { ServiceContext };

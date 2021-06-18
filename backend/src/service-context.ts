@@ -1,23 +1,11 @@
-import { AnkiConfig, AnkiCardRef } from "./types";
 import fs from "fs";
 import path from "path";
-import { Background } from "./background";
 import { MongoClient, Db } from "mongodb";
 
 export class ServiceContext {
     private _resourcesPath?: string;
     private _fallbackPage?: string;
-    private _migrationPath?: string;
-    private _background?: Background;
     private _db?: Db;
-
-    public get background() {
-        if (typeof this._background !== "undefined") {
-            return this._background
-        } else {
-            throw "Background not initialized!"
-        }
-    }
 
     public get resourcesPath() {
         if (typeof this._resourcesPath !== "undefined") {
@@ -32,14 +20,6 @@ export class ServiceContext {
             return this._fallbackPage
         } else {
             throw "Default page not initialized!"
-        }
-    }
-
-    public get migrationPath() {
-        if (typeof this._migrationPath !== "undefined") {
-            return this._migrationPath
-        } else {
-            throw "Migration path not initialized!"
         }
     }
 
@@ -83,14 +63,10 @@ export class ServiceContext {
             process.env.PATH_MIGRATION!
         );
 
-        // const memConfig = this.setupConfig(resourcesPath);
         const fallbackPage = this.setupFallbackPage(resourcesPath);
 
         this._resourcesPath = resourcesPath;
-        // this._memConfig = memConfig;
         this._fallbackPage = fallbackPage;
-        this._migrationPath = migrationPath;
-        this._background = new Background();
         await this.setupDb();
     }
 }

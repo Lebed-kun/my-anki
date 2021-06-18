@@ -202,6 +202,7 @@ export class Router<T> {
                 let failed = false;
                 const recognizer = info.recognizer;
 
+                recognizer.clear();
                 recognizer.fsm.proceed(
                     path,
                     0,
@@ -212,15 +213,14 @@ export class Router<T> {
 
                 if (!failed) {
                     ctx.request.params = recognizer.getValues();
-                    recognizer.clear();
-
+                    
+                    this._queryRecognizer.clear();
                     this._queryRecognizer.fsm.proceed(
                         query,
                         0,
                         (_1: string, _2: number) => {}
                     );
                     ctx.request.query = this._queryRecognizer.getValues();
-                    this._queryRecognizer.clear();
 
                     handler = info.handler;
                     break;
