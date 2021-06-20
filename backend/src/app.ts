@@ -69,6 +69,7 @@ export class App<T extends BasicState> {
                     )
                     .catch(
                         e => {
+                            console.error(e);
                             res.writeHead(Number(App.DEFAULT_STATUS));
                             res.write(e.message);
                         }

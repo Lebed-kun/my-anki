@@ -173,7 +173,9 @@ export class Router<T> {
 
         this._paths[method].push(
             {
-                recognizer: this.createPathRecognizer(this._prefix + path),
+                recognizer: this.createPathRecognizer(
+                    this._prefix + (path === "/" ? "" : path)
+                ),
                 handler
             }
         );
@@ -213,14 +215,16 @@ export class Router<T> {
 
                 if (!failed) {
                     ctx.request.params = recognizer.getValues();
-                    
-                    this._queryRecognizer.clear();
-                    this._queryRecognizer.fsm.proceed(
-                        query,
-                        0,
-                        (_1: string, _2: number) => {}
-                    );
-                    ctx.request.query = this._queryRecognizer.getValues();
+
+                    if (query) {
+                        this._queryRecognizer.clear();
+                        this._queryRecognizer.fsm.proceed(
+                            query,
+                            0,
+                            (_1: string, _2: number) => { }
+                        );
+                        ctx.request.query = this._queryRecognizer.getValues();
+                    }
 
                     handler = info.handler;
                     break;

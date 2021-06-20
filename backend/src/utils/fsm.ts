@@ -40,7 +40,8 @@ export class Fsm {
         while (i <= str.length) {
             let recognized = false;
             const transitions = this._transitionTable[state];
-            
+            if (!transitions) break;
+
             for (let trs of transitions) {
                 if (trs.condition(str, i)) {
                     recognized = true;

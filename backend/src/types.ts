@@ -1,4 +1,4 @@
-import { ServiceContext } from "./service-context";
+import { Db } from "mongodb";
 
 export interface AnkiCardRef {
     repetition: number;
@@ -17,16 +17,6 @@ export interface ServiceResponse {
     headers: { [key: string]: string };
     body: string;
 }
-
-export interface Filter {
-    validate(body: any): boolean;
-    execute(body: any, context: ServiceContext): Promise<ServiceResponse>;
-}
-
-export type Routes = Map<
-    string,
-    Map<string, Filter>
->;
 
 interface Dict {
     [k: string]: string | string[] | undefined;
@@ -60,7 +50,7 @@ export interface HookContext<T extends BasicState> {
 export type HookHandler<T extends BasicState> = (ctx: HookContext<T>) => Promise<any>;
 
 export interface State {
-    
+    db: Db;
+    resourcesPath: string;
+    fallbackPage: string;
 }
-
-export { ServiceContext };
