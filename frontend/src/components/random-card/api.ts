@@ -4,11 +4,11 @@ import { CardMeta } from "../../types";
 
 export const fetchCardRefs = async (deckName: string): Promise<CardMeta[]> => {
     const res = await fetch(
-        `${BACKEND_URL}/deck-cards`,
+        `${BACKEND_URL}/anki/deck-cards`,
         {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "content-type": "application/json"
             },
             body: JSON.stringify({
                 name: deckName,
@@ -27,11 +27,11 @@ export const fetchCardRefs = async (deckName: string): Promise<CardMeta[]> => {
 
 export const fetchCardSides = async (deckName: string, cardName: string) => {
     const res = await fetch(
-        `${BACKEND_URL}/card`,
+        `${BACKEND_URL}/anki/card`,
         {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "content-type": "application/json"
             },
             body: JSON.stringify({
                 deck_name: deckName,
@@ -50,11 +50,11 @@ export const updateScores = async (deckName: string, cards: GradeDict) => {
     });
 
     const resp = await fetch(
-        `${BACKEND_URL}/update-scores`,
+        `${BACKEND_URL}/anki/update-scores`,
         {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "content-type": "application/json"
             },
             body
         }

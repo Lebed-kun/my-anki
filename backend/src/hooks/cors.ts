@@ -1,6 +1,10 @@
 import { HookHandler, HookContext } from "../types";
 
 export async function cors<T>(ctx: HookContext<T>) {
+    if (ctx.request.method === "OPTIONS") {
+        ctx.response.status = 200;
+    }
+
     ctx.response.headers = {
         ...ctx.response.headers,
         "Access-Control-Allow-Origin": "*",

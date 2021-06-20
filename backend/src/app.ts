@@ -64,14 +64,14 @@ export class App<T extends BasicState> {
                                 context.response.status,
                                 context.response.headers
                             );
-                            res.write(context.response.body);
+                            res.write(context.response.body || "");
                         }
                     )
                     .catch(
                         e => {
                             console.error(e);
                             res.writeHead(Number(App.DEFAULT_STATUS));
-                            res.write(e.message);
+                            res.write(JSON.stringify(e));
                         }
                     )
                     .finally(

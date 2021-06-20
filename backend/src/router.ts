@@ -196,7 +196,10 @@ export class Router<T> {
     public toHook(): HookHandler<T> {
         return async (ctx: HookContext<T>) => {
             const paths = this._paths[ctx.request.method];
-            if (!paths) throw `Unknown method ${ctx.request.method}`;
+            if (!paths) {
+                console.error(`Unknown method ${ctx.request.method}`);
+                return;
+            };
 
             const [path, query] = ctx.request.url.split("?");
             let handler: HookHandler<T> | null = null;

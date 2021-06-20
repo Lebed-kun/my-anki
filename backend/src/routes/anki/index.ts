@@ -112,7 +112,7 @@ export const createAnkiRoutes = () => {
         ctx.response.body = decks;
     });
 
-    router.get("/deck-cards", async (ctx) => {
+    router.post("/deck-cards", async (ctx) => {
         const body = ctx.request.body;
 
         if (typeof body !== "object" || typeof body.name !== "string") {
@@ -148,7 +148,7 @@ export const createAnkiRoutes = () => {
         ctx.response.body = cards;
     });
 
-    router.get("/card", async (ctx) => {
+    router.post("/card", async (ctx) => {
         if (
             (typeof ctx.request.body !== "object") ||
             (typeof ctx.request.body.deck_name !== "string") ||

@@ -6,11 +6,11 @@ import { Deck } from "../../types";
 
 const fetchDecks = async (): Promise<Deck[]> => {
     const res = await fetch(
-        `${BACKEND_URL}/decks`,
+        `${BACKEND_URL}/anki/decks`,
         {
-            method: "POST",
+            method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "content-type": "application/json"
             }
         }
     );

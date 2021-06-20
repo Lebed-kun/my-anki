@@ -5,7 +5,7 @@ export async function parseJson<T>(ctx: HookContext<T>) {
         ctx.request.headers["content-type"] === "application/json" && 
         typeof ctx.request.body === "string"
     ) {
-        ctx.request.body = await JSON.parse(ctx.request.body);
+        ctx.request.body = await JSON.parse(ctx.request.body || "null");
     }
 }
 
