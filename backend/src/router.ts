@@ -198,7 +198,7 @@ export class Router<T> {
             const paths = this._paths[ctx.request.method];
             if (!paths) {
                 console.error(`Unknown method ${ctx.request.method}`);
-                return;
+                throw `Unknown method ${ctx.request.method}`;
             };
 
             const [path, query] = ctx.request.url.split("?");

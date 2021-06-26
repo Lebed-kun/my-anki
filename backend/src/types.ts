@@ -54,3 +54,23 @@ export interface State {
     resourcesPath: string;
     fallbackPage: string;
 }
+
+export enum PasswordConcatMethod {
+    Append = "append",
+    Merge = "merge",
+}
+
+export interface PasswordConfig {
+    hash: string;
+    salt: string;
+    concatMethod: PasswordConcatMethod;
+    reversePassword: boolean;
+}
+
+export interface User {
+    nickname: string;
+    email: string;
+    passwordConfig: PasswordConfig;
+    confirmationCode: string;
+    confirmed: boolean;
+}

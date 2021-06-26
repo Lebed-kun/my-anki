@@ -39,7 +39,9 @@ export class App<T extends BasicState> {
                     body: null
                 },
                 // @ts-ignore
-                state: {}
+                state: {
+                    _handlerProceed: false
+                }
             };
 
             req.on("error", (err) => {
