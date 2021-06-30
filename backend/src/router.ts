@@ -197,8 +197,8 @@ export class Router<T> {
         return async (ctx: HookContext<T>) => {
             const paths = this._paths[ctx.request.method];
             if (!paths) {
-                console.error(`Unknown method ${ctx.request.method}`);
-                throw `Unknown method ${ctx.request.method}`;
+                console.error(`Unknown method ${ctx.request.method} from ${ctx.request.url}`);
+                return;
             };
 
             const [path, query] = ctx.request.url.split("?");

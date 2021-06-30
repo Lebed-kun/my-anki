@@ -16,7 +16,11 @@ export class App<T extends BasicState> {
 
     private async proceedHandlers(ctx: HookContext<T>) {
         for (const h of this._hooks) {
-            await h(ctx);
+            try {
+                await h(ctx);
+            } catch (e) {
+                console.error(e);
+            }
         }
     }
 
