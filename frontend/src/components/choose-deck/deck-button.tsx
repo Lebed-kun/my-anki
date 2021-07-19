@@ -22,7 +22,7 @@ const DeckButton: React.FC<Props> = ({ deckName, title }) => {
     return (
         <div className={styles.wrapper}>
             <button onClick={onClick}>
-                {title}
+                {title || deckName}
             </button>
         </div>
     )
